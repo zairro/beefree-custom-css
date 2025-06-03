@@ -1,85 +1,60 @@
 /*
-  Pride & Trans Flag Theme for Beefree SDK
-  - Colors from rainbow pride flag and trans flag
-  - Inter font throughout
-  - Vibrant, inclusive theme
-*/
+ * Pride & Trans Theme for Beefree SDK
+ * Targets specific Beefree classes with flag colors
+ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Font Import - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Pride & Trans Color Palette */
+/* Color Variables */
 :root {
   /* Rainbow Pride Colors */
-  --pride-red: #E40303;
-  --pride-orange: #FF8C00;
-  --pride-yellow: #FFED00;
-  --pride-green: #008026;
-  --pride-blue: #004DFF;
-  --pride-purple: #750787;
+  --red: #E40303;
+  --orange: #FF8C00;
+  --yellow: #FFED00;
+  --green: #008026;
+  --blue: #004DFF;
+  --purple: #750787;
   
   /* Trans Flag Colors */
   --trans-blue: #5BCEFA;
   --trans-pink: #F5A9B8;
   --trans-white: #FFFFFF;
   
-  /* Additional Theme Colors */
-  --dark-bg: #1A1A2E;
-  --light-text: #FFFFFF;
-  --dark-text: #1A1A2E;
+  /* UI Colors */
+  --dark-bg: #1a1a2e;
+  --light-text: #ffffff;
+  --border-color: rgba(255,255,255,0.1);
 }
 
-html,
+/* Base Styles */
 body.bee--cs {
-  font-size: 14px;
   font-family: 'Inter', sans-serif;
   background-color: var(--dark-bg);
   color: var(--light-text);
 }
 
-/* General Typography */
-html,
-body.bee--cs,
-body.bee--cs .h1,
-body.bee--cs .h2,
-body.bee--cs .h3,
-body.bee--cs .h4,
-body.bee--cs .h5,
-body.bee--cs .h6,
-body.bee--cs .tooltip,
-body.bee--cs h1,
-body.bee--cs h2,
-body.bee--cs h3,
-body.bee--cs h4,
-body.bee--cs h5,
-body.bee--cs h6,
-body.bee--cs .tgl-title {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
+/* Main Editor Container */
+.bee--cs .page-stage {
+  background-color: var(--dark-bg);
 }
 
-/* Main Widget Bar */
+/* Widget Bar - Vertical Left Panel */
 .widget-bar.widget-bar--cs {
-  background: linear-gradient(135deg, var(--pride-purple), var(--pride-blue));
-  border-left-color: var(--pride-purple);
+  background-color: var(--dark-bg);
+  border-right: 1px solid var(--border-color);
 }
 
-/* Tabs */
+/* Tabs - Left Panel Navigation */
 .widget-bar.widget-bar--cs .tabset__tab--cs a {
-  background: var(--dark-bg);
+  background-color: var(--dark-bg);
   color: var(--trans-pink);
-  border-bottom-color: var(--pride-purple);
+  border-bottom: 1px solid var(--border-color);
 }
 
-.widget-bar.widget-bar--cs .tabset__tab--cs a:hover {
-  background: var(--pride-purple);
+.widget-bar.widget-bar--cs .tabset__tab--cs.active a {
+  background-color: var(--purple);
   color: var(--light-text);
-}
-
-.widget-bar.widget-bar--cs .tabset__tab--cs.active a,
-.widget-bar.widget-bar--cs .tabset__tab--cs.active a:hover {
-  background: var(--pride-blue);
-  color: var(--light-text);
-  border-bottom-color: var(--trans-blue);
 }
 
 /* Tab Icons */
@@ -91,49 +66,55 @@ body.bee--cs .tgl-title {
   fill: var(--trans-blue) !important;
 }
 
-/* Panels & Widgets */
+/* Widget Sections */
+.widget-bar.widget-bar--cs .widgets-section__title--cs {
+  background: linear-gradient(90deg, var(--red), var(--orange));
+  color: var(--light-text);
+}
+
+/* Individual Widgets */
 .widget-bar.widget-bar--cs .panel--default.panel--cs {
   background-color: var(--dark-bg);
-  border-color: var(--pride-purple);
-  border-radius: 8px;
-}
-
-.widget-bar.widget-bar--cs .panel--default.panel--cs:hover {
-  border-color: var(--trans-blue);
-  box-shadow: 0 6px 12px rgba(91, 206, 250, 0.3);
-}
-
-.widget-bar.widget-bar--cs .widgets-section .widgets-section__title--cs {
-  background: linear-gradient(to right, var(--pride-red), var(--pride-orange));
-  color: var(--light-text);
+  border: 1px solid var(--border-color);
 }
 
 /* Input Fields */
 .widget-bar.widget-bar--cs input[type="text"],
-.widget-bar.widget-bar--cs .dropdown-custom--cs .dropdown-toggle,
-.widget-bar.widget-bar--cs .number-selector--cs .btn {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: var(--trans-pink);
+.widget-bar.widget-bar--cs select,
+.widget-bar.widget-bar--cs .dropdown-toggle {
+  background-color: rgba(255,255,255,0.05);
+  border: 1px solid var(--trans-pink);
   color: var(--light-text);
-  border-radius: 4px;
 }
 
 /* Buttons */
-body.bee--cs .btn-primary,
-body.bee--cs .btn-primary:hover {
-  background: linear-gradient(to right, var(--trans-blue), var(--trans-pink));
-  border-color: transparent;
-  color: var(--dark-text);
-  font-weight: 600;
+body.bee--cs .btn-primary {
+  background-color: var(--trans-blue);
+  color: var(--dark-bg);
+  border: none;
 }
 
 /* Toggle Switches */
 .widget-bar.widget-bar--cs .tgl-container--cs .tgl_bgd {
-  background: var(--pride-green);
+  background-color: var(--green);
 }
 
-.widget-bar.widget-bar--cs .tgl-container--cs .tgl_switch {
-  background: var(--trans-white);
+/* Selected Elements */
+body.bee--cs .selected.module-box:before,
+body.bee--cs .selected.row-container .row-selector:before {
+  background-color: var(--trans-blue);
+}
+
+/* Drag States */
+body.bee--cs .dragging.module,
+body.bee--cs .dragging.row {
+  background-color: rgba(91, 206, 250, 0.2);
+}
+
+/* Properties Panel */
+.widget-bar.widget-bar--cs .properties-panel__title--cs h4 {
+  background: linear-gradient(90deg, var(--trans-blue), var(--trans-pink));
+  color: var(--dark-bg);
 }
 
 /* Icons */
@@ -141,58 +122,30 @@ body.bee--cs .btn-primary:hover {
   fill: var(--trans-pink) !important;
 }
 
-.widget-bar.widget-bar--cs svg .icon--color-light {
-  fill: var(--trans-blue) !important;
-}
-
-.widget-bar.widget-bar--cs svg .icon--color-dark {
-  fill: var(--pride-purple) !important;
-}
-
-/* Selection States */
-body.bee--cs .selected.module-box:before,
-body.bee--cs .selected.row-container .row-selector:before {
-  background-color: var(--trans-blue);
-}
-
-body.bee--cs .page-stage .selected.module-box:after,
-body.bee--cs .page-stage .selected.row-container:after {
-  outline: 2px solid var(--trans-pink);
-}
-
-/* Drag States */
-body.bee--cs .dragging.module,
-body.bee--cs .dragging.row {
-  background-color: rgba(245, 169, 184, 0.2);
-}
-
-/* Icon Organizer */
-.widget-bar.widget-bar--cs .icon-organizer__panel--cs {
-  background: var(--dark-bg);
-  border-color: var(--pride-yellow);
-}
-
 /* Scrollbars */
 .widget-bar.widget-bar--cs ::-webkit-scrollbar {
   width: 8px;
-  background-color: var(--dark-bg);
 }
 
 .widget-bar.widget-bar--cs ::-webkit-scrollbar-thumb {
-  background: linear-gradient(var(--pride-red), var(--pride-orange));
+  background-color: var(--purple);
   border-radius: 4px;
 }
 
-/* Rainbow Accent Border */
-.widget-bar.widget-bar--cs .properties-panel__title--cs h4 {
-  border-image: linear-gradient(to right, 
-    var(--pride-red), 
-    var(--pride-orange), 
-    var(--pride-yellow), 
-    var(--pride-green), 
-    var(--pride-blue), 
-    var(--pride-purple)) 1;
-  border-top: 2px solid;
-  background: var(--dark-bg);
-  color: var(--trans-white);
+/* Add rainbow border to active elements */
+body.bee--cs .page-stage .selected.module-box:after,
+body.bee--cs .page-stage .selected.row-container:after {
+  outline: 2px solid;
+  outline-color: var(--red);
+  animation: rainbow-border 4s linear infinite;
+}
+
+@keyframes rainbow-border {
+  0% { outline-color: var(--red); }
+  16% { outline-color: var(--orange); }
+  32% { outline-color: var(--yellow); }
+  48% { outline-color: var(--green); }
+  64% { outline-color: var(--blue); }
+  80% { outline-color: var(--purple); }
+  100% { outline-color: var(--red); }
 }

@@ -1,14 +1,9 @@
-/*
- * Pride & Trans Theme for Beefree SDK
- * Targets specific Beefree classes with flag colors
- */
-
 /* Font Import - Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* Color Variables */
 :root {
-  /* Rainbow Pride Colors */
+  /* Rainbow Colors */
   --red: #E40303;
   --orange: #FF8C00;
   --yellow: #FFED00;
@@ -16,7 +11,7 @@
   --blue: #004DFF;
   --purple: #750787;
   
-  /* Trans Flag Colors */
+  /* Colors */
   --trans-blue: #5BCEFA;
   --trans-pink: #F5A9B8;
   --trans-white: #FFFFFF;

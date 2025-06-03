@@ -2,8 +2,7 @@
 A repository for applying Custom CSS in Beefree SDK.
 
 # Beefree SDK UI Customization Guide
-
-![Beefree SDK Custom UI Example](https://example.com/beefree-custom-ui.jpg) *Example of a customized Beefree SDK interface*
+This guide explains how to customize the Beefree SDK user interface by modifying the CSS file.
 
 ## Table of Contents
 1. [Introduction](#introduction)

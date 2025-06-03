@@ -1,146 +1,228 @@
-/* Font Import - Inter */
+/*
+ * Earth & Sustainability Theme for Beefree SDK
+ * Natural color palette with greens, blues, browns, and grays
+ */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Color Variables */
+/* Earth Tone Color Variables */
 :root {
-  /* Rainbow Colors */
-  --red: #E40303;
-  --orange: #FF8C00;
-  --yellow: #FFED00;
-  --green: #008026;
-  --blue: #004DFF;
-  --purple: #750787;
+  /* Greens */
+  --forest-green: #228B22;
+  --sage-green: #9DC183;
+  --olive-green: #6B8E23;
+  --mint-green: #98FF98;
   
-  /* Colors */
-  --trans-blue: #5BCEFA;
-  --trans-pink: #F5A9B8;
-  --trans-white: #FFFFFF;
+  /* Blues */
+  --sky-blue: #87CEEB;
+  --ocean-blue: #1E90FF;
+  --deep-teal: #008080;
+  
+  /* Browns */
+  --earth-brown: #8B4513;
+  --sand: #F4A460;
+  --clay: #D27D46;
+  
+  /* Grays */
+  --stone-gray: #808080;
+  --slate: #708090;
+  --cloud: #F5F5F5;
   
   /* UI Colors */
-  --dark-bg: #1a1a2e;
-  --light-text: #ffffff;
+  --dark-bg: #2F4F4F;  /* Dark slate gray */
+  --light-text: #F5F5F5;
   --border-color: rgba(255,255,255,0.1);
 }
 
 /* Base Styles */
 body.bee--cs {
   font-family: 'Inter', sans-serif;
-  background-color: var(--dark-bg);
-  color: var(--light-text);
+  background-color: var(--cloud);
+  color: #333;
 }
 
 /* Main Editor Container */
 .bee--cs .page-stage {
-  background-color: var(--dark-bg);
+  background-color: var(--cloud);
+  border: 1px solid var(--sage-green);
 }
 
 /* Widget Bar - Vertical Left Panel */
 .widget-bar.widget-bar--cs {
   background-color: var(--dark-bg);
-  border-right: 1px solid var(--border-color);
+  border-right: 2px solid var(--olive-green);
 }
 
 /* Tabs - Left Panel Navigation */
 .widget-bar.widget-bar--cs .tabset__tab--cs a {
-  background-color: var(--dark-bg);
-  color: var(--trans-pink);
-  border-bottom: 1px solid var(--border-color);
+  background-color: var(--slate);
+  color: var(--cloud);
+  border-bottom: 1px solid var(--olive-green);
 }
 
 .widget-bar.widget-bar--cs .tabset__tab--cs.active a {
-  background-color: var(--purple);
-  color: var(--light-text);
+  background-color: var(--forest-green);
+  color: var(--cloud);
+  font-weight: 600;
 }
 
 /* Tab Icons */
 .widget-bar.widget-bar--cs .tabs__iconwrapper svg path {
-  fill: var(--trans-pink) !important;
+  fill: var(--sage-green) !important;
 }
 
 .widget-bar.widget-bar--cs .tabset__tab--cs.active .tabs__iconwrapper svg path {
-  fill: var(--trans-blue) !important;
+  fill: var(--mint-green) !important;
 }
 
 /* Widget Sections */
 .widget-bar.widget-bar--cs .widgets-section__title--cs {
-  background: linear-gradient(90deg, var(--red), var(--orange));
-  color: var(--light-text);
+  background: linear-gradient(90deg, var(--forest-green), var(--deep-teal));
+  color: var(--cloud);
+  padding: 10px 15px;
+  font-size: 0.9rem;
 }
 
 /* Individual Widgets */
 .widget-bar.widget-bar--cs .panel--default.panel--cs {
-  background-color: var(--dark-bg);
-  border: 1px solid var(--border-color);
+  background-color: var(--cloud);
+  border: 1px solid var(--sage-green);
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.widget-bar.widget-bar--cs .panel--default.panel--cs:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border-color: var(--ocean-blue);
 }
 
 /* Input Fields */
 .widget-bar.widget-bar--cs input[type="text"],
 .widget-bar.widget-bar--cs select,
-.widget-bar.widget-bar--cs .dropdown-toggle {
-  background-color: rgba(255,255,255,0.05);
-  border: 1px solid var(--trans-pink);
-  color: var(--light-text);
+.widget-bar.widget-bar--cs .dropdown-toggle,
+.widget-bar.widget-bar--cs textarea {
+  background-color: var(--cloud);
+  border: 1px solid var(--stone-gray);
+  color: #333;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+.widget-bar.widget-bar--cs input[type="text"]:focus,
+.widget-bar.widget-bar--cs select:focus,
+.widget-bar.widget-bar--cs .dropdown-toggle:focus {
+  border-color: var(--ocean-blue);
+  box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.2);
 }
 
 /* Buttons */
 body.bee--cs .btn-primary {
-  background-color: var(--trans-blue);
-  color: var(--dark-bg);
+  background-color: var(--deep-teal);
+  color: white;
   border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+body.bee--cs .btn-primary:hover {
+  background-color: var(--ocean-blue);
+  transform: translateY(-1px);
 }
 
 /* Toggle Switches */
 .widget-bar.widget-bar--cs .tgl-container--cs .tgl_bgd {
-  background-color: var(--green);
+  background-color: var(--sage-green);
+}
+
+.widget-bar.widget-bar--cs .tgl-container--cs .tgl_switch {
+  background-color: var(--cloud);
 }
 
 /* Selected Elements */
 body.bee--cs .selected.module-box:before,
 body.bee--cs .selected.row-container .row-selector:before {
-  background-color: var(--trans-blue);
+  background-color: var(--deep-teal);
 }
 
 /* Drag States */
 body.bee--cs .dragging.module,
 body.bee--cs .dragging.row {
-  background-color: rgba(91, 206, 250, 0.2);
+  background-color: rgba(152, 255, 152, 0.3); /* mint green */
+  outline: 2px dashed var(--forest-green);
 }
 
 /* Properties Panel */
 .widget-bar.widget-bar--cs .properties-panel__title--cs h4 {
-  background: linear-gradient(90deg, var(--trans-blue), var(--trans-pink));
-  color: var(--dark-bg);
+  background: linear-gradient(90deg, var(--earth-brown), var(--olive-green));
+  color: var(--cloud);
+  padding: 12px 15px;
+  font-size: 0.95rem;
 }
 
 /* Icons */
 .widget-bar.widget-bar--cs svg .icon--color-base {
-  fill: var(--trans-pink) !important;
+  fill: var(--forest-green) !important;
+}
+
+.widget-bar.widget-bar--cs svg .icon--color-light {
+  fill: var(--sage-green) !important;
+}
+
+.widget-bar.widget-bar--cs svg .icon--color-dark {
+  fill: var(--earth-brown) !important;
 }
 
 /* Scrollbars */
 .widget-bar.widget-bar--cs ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 .widget-bar.widget-bar--cs ::-webkit-scrollbar-thumb {
-  background-color: var(--purple);
-  border-radius: 4px;
+  background-color: var(--olive-green);
+  border-radius: 6px;
 }
 
-/* Add rainbow border to active elements */
+.widget-bar.widget-bar--cs ::-webkit-scrollbar-track {
+  background-color: rgba(0,0,0,0.05);
+}
+
+/* Leaf-inspired accent for active elements */
 body.bee--cs .page-stage .selected.module-box:after,
 body.bee--cs .page-stage .selected.row-container:after {
-  outline: 2px solid;
-  outline-color: var(--red);
-  animation: rainbow-border 4s linear infinite;
+  outline: 2px solid var(--forest-green);
+  box-shadow: 0 0 0 2px rgba(34, 139, 34, 0.2);
 }
 
-@keyframes rainbow-border {
-  0% { outline-color: var(--red); }
-  16% { outline-color: var(--orange); }
-  32% { outline-color: var(--yellow); }
-  48% { outline-color: var(--green); }
-  64% { outline-color: var(--blue); }
-  80% { outline-color: var(--purple); }
-  100% { outline-color: var(--red); }
+/* Water-inspired animation for buttons */
+@keyframes water-ripple {
+  0% { box-shadow: 0 0 0 0 rgba(30, 144, 255, 0.4); }
+  100% { box-shadow: 0 0 0 10px rgba(30, 144, 255, 0); }
+}
+
+body.bee--cs .btn-primary:focus {
+  animation: water-ripple 0.6s ease-out;
+}
+
+/* Organic shapes for panels */
+.widget-bar.widget-bar--cs .panel--default.panel--cs {
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% calc(100% - 10px),
+    calc(100% - 10px) 100%,
+    0% 100%
+  );
+}
+
+/* Natural texture for widget bar */
+.widget-bar.widget-bar--cs {
+  background-image: linear-gradient(
+      rgba(47, 79, 79, 0.9),
+      rgba(47, 79, 79, 0.9)
+    ),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23228B22" stroke-width="0.5" opacity="0.2"/></svg>');
+  background-size: 40px 40px;
 }

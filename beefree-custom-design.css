@@ -47,6 +47,41 @@ body.bee--cs {
   border: 1px solid var(--sage-green);
 }
 
+/* Top bar main background */
+header.top-bar.Header_header__Akif0.header--cs {
+  background: var(--forest-green);
+}
+
+/* Left section (logo area) */
+.header-left--cs,
+.Header_headerLeft__Akif0 {
+  background: var(--forest-green);
+}
+
+/* Right section (actions area) */
+.header-right--cs,
+.Header_headerRight__Akif0 {
+  background: var(--forest-green);
+}
+
+/* Divider (if you want it to be green too) */
+.Header_divider__Akif0 {
+  background: var(--forest-green);
+}
+
+/* Optional: Buttons inside the header (override if needed) */
+.header--cs .btn-primary,
+.header--cs .BeeButton_beeButton__SlzKf {
+  background: var(--forest-green);
+  color: var(--cloud);
+  border: none;
+}
+
+/* Optional: Icons in the header */
+.Header_headerRightIcons__Akif0 svg path {
+  fill: var(--forest-green);
+}
+
 /* Widget Bar - Vertical Left Panel */
 .widget-bar.widget-bar--cs {
   background-color: var(--dark-bg);

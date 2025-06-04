@@ -63,7 +63,6 @@ This guide explains how to customize the Beefree SDK user interface by modifying
    - Use the `+` button to add new rules
    - Test changes before adding to your CSS file
 
-![DevTools Example](https://example.com/devtools-example.png) *Using Chrome DevTools to inspect Beefree elements*
 
 ### Specific Techniques
 

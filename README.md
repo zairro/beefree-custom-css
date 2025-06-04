@@ -21,7 +21,7 @@ This guide explains how to customize the Beefree SDK user interface by modifying
 
 ### Basic Setup
 
-1. Locate the CSS file in your project (typically `beefree-sdk.css`)
+1. Locate the CSS file in your project
 2. Make a backup before making changes
 3. Use the following structure for new styles:
 
@@ -56,7 +56,7 @@ This guide explains how to customize the Beefree SDK user interface by modifying
 
 2. **Identify Classes**:
    - Hover over elements in the Elements panel
-   - Look for class names in the HTML (usually starts with `bf-`, `bee-`, or `builder-`)
+   - Look for class names in the HTML
 
 3. **Test Styles**:
    - In the Styles panel, add temporary CSS

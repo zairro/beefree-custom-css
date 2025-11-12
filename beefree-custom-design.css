@@ -1,263 +1,586 @@
 /*
- * Earth & Sustainability Theme for Beefree SDK
- * Natural color palette with greens, blues, browns, and grays
+ * Brand Theme for Beefree SDK
+ * 
+ * Brand Colors:
+ * - Primary Green: #1DB954
+ * - Dark Background: #191414
+ * - Light Background: #121212
+ * - Text: #FFFFFF
+ * - Secondary Text: #B3B3B3
+ * - Hover: #1ED760
+ * 
+ * Font: Inter or fallback to system fonts
+ * 
+ * Updated with latest Beefree SDK CSS classes (--cs suffix)
+ * Following Custom CSS best practices from Beefree SDK docs
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* Earth Tone Color Variables */
+/* Brand Color Variables */
 :root {
-  /* Greens */
-  --forest-green: #228B22;
-  --sage-green: #9DC183;
-  --olive-green: #6B8E23;
-  --mint-green: #98FF98;
-  
-  /* Blues */
-  --sky-blue: #87CEEB;
-  --ocean-blue: #1E90FF;
-  --deep-teal: #008080;
-  
-  /* Browns */
-  --earth-brown: #8B4513;
-  --sand: #F4A460;
-  --clay: #D27D46;
-  
-  /* Grays */
-  --stone-gray: #808080;
-  --slate: #708090;
-  --cloud: #F5F5F5;
-  
-  /* UI Colors */
-  --dark-bg: #2F4F4F;  /* Dark slate gray */
-  --light-text: #F5F5F5;
-  --border-color: rgba(255,255,255,0.1);
+  --brand-green: #1DB954;
+  --brand-green-hover: #1ED760;
+  --brand-dark: #191414;
+  --brand-dark-light: #121212;
+  --brand-text: #FFFFFF;
+  --brand-text-secondary: #B3B3B3;
+  --brand-border: rgba(255, 255, 255, 0.1);
+  --brand-hover-bg: rgba(255, 255, 255, 0.1);
 }
 
-/* Base Styles */
+/* Base Styles - Use specific selectors with body.bee--cs */
 body.bee--cs {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--cloud);
-  color: #333;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--brand-dark-light);
+  color: var(--brand-text);
 }
 
 /* Main Editor Container */
 .bee--cs .page-stage {
-  background-color: var(--cloud);
-  border: 1px solid var(--sage-green);
+  background-color: var(--brand-dark-light);
+  border: 1px solid var(--brand-border);
 }
 
+/* ============================================
+   TOP BAR / HEADER
+   ============================================ */
+
 /* Top bar main background */
-header.top-bar.Header_header__Akif0.header--cs {
-  background: var(--forest-green);
+header.top-bar.Header_header__Akif0.header--cs,
+.header--cs {
+  background: var(--brand-dark) !important;
+  border-bottom: 1px solid var(--brand-border);
 }
 
 /* Left section (logo area) */
 .header-left--cs,
 .Header_headerLeft__Akif0 {
-  background: var(--forest-green);
+  background: var(--brand-dark) !important;
 }
 
 /* Right section (actions area) */
 .header-right--cs,
 .Header_headerRight__Akif0 {
-  background: var(--forest-green);
+  background: var(--brand-dark) !important;
 }
 
-/* Divider (if you want it to be green too) */
+/* Divider */
 .Header_divider__Akif0 {
-  background: var(--forest-green);
+  background: var(--brand-dark) !important;
 }
 
-/* Optional: Buttons inside the header (override if needed) */
+/* Buttons in header */
 .header--cs .btn-primary,
-.header--cs .BeeButton_beeButton__SlzKf {
-  background: var(--forest-green);
-  color: var(--cloud);
-  border: none;
+.header--cs .BeeButton_beeButton__SlzKf,
+body.bee--cs .button--cs,
+body.bee--cs .button-primary--cs {
+  background-color: var(--brand-green) !important;
+  color: var(--brand-text) !important;
+  border: none !important;
+  border-radius: 500px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  transition: all 0.2s ease !important;
 }
 
-/* Optional: Icons in the header */
-.Header_headerRightIcons__Akif0 svg path {
-  fill: var(--forest-green);
+.header--cs .btn-primary:hover,
+.header--cs .BeeButton_beeButton__SlzKf:hover,
+body.bee--cs .button--cs:hover,
+body.bee--cs .button-primary--cs:hover {
+  background-color: var(--brand-green-hover) !important;
+  transform: scale(1.05);
 }
+
+/* Icons in header */
+.Header_headerRightIcons__Akif0 svg path,
+.header--cs svg path {
+  fill: var(--brand-text) !important;
+}
+
+/* ============================================
+   SIDEBAR / WIDGET BAR
+   ============================================ */
 
 /* Widget Bar - Vertical Left Panel */
 .widget-bar.widget-bar--cs {
-  background-color: var(--dark-bg);
-  border-right: 2px solid var(--olive-green);
+  background-color: var(--brand-dark) !important;
+  border-right: 1px solid var(--brand-border);
 }
 
 /* Tabs - Left Panel Navigation */
 .widget-bar.widget-bar--cs .tabset__tab--cs a {
-  background-color: var(--slate);
-  color: var(--cloud);
-  border-bottom: 1px solid var(--olive-green);
+  background-color: transparent;
+  color: var(--brand-text-secondary);
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
 }
 
 .widget-bar.widget-bar--cs .tabset__tab--cs.active a {
-  background-color: var(--forest-green);
-  color: var(--cloud);
+  background-color: transparent;
+  color: var(--brand-text);
+  border-bottom-color: var(--brand-green);
   font-weight: 600;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs a:hover {
+  color: var(--brand-text);
+  background-color: var(--brand-hover-bg);
 }
 
 /* Tab Icons */
 .widget-bar.widget-bar--cs .tabs__iconwrapper svg path {
-  fill: var(--sage-green) !important;
+  fill: var(--brand-text-secondary) !important;
 }
 
 .widget-bar.widget-bar--cs .tabset__tab--cs.active .tabs__iconwrapper svg path {
-  fill: var(--mint-green) !important;
+  fill: var(--brand-green) !important;
 }
 
 /* Widget Sections */
 .widget-bar.widget-bar--cs .widgets-section__title--cs {
-  background: linear-gradient(90deg, var(--forest-green), var(--deep-teal));
-  color: var(--cloud);
-  padding: 10px 15px;
-  font-size: 0.9rem;
+  background: var(--brand-dark-light);
+  color: var(--brand-text);
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid var(--brand-border);
 }
 
-/* Individual Widgets */
-.widget-bar.widget-bar--cs .panel--default.panel--cs {
-  background-color: var(--cloud);
-  border: 1px solid var(--sage-green);
-  border-radius: 4px;
-  margin-bottom: 10px;
+/* ============================================
+   DRAGGABLE CONTENT TILES / MODULES
+   ============================================ */
+
+/* Updated classes from changelog - sidebar-draggable--cs */
+.sidebar-draggable--cs,
+.sidebar-draggable-fullwidth--cs,
+.sidebar-draggable-heading--cs,
+.sidebar-draggable-paragraph--cs,
+.sidebar-draggable-button--cs,
+.sidebar-draggable-image--cs,
+.sidebar-draggable-list--cs,
+.sidebar-draggable-divider--cs,
+.sidebar-draggable-spacer--cs,
+.sidebar-draggable-social--cs,
+.sidebar-draggable-html--cs,
+.sidebar-draggable-video--cs,
+.sidebar-draggable-form--cs,
+.sidebar-draggable-icons--cs,
+.sidebar-draggable-menu--cs,
+.sidebar-draggable-carousel--cs,
+.sidebar-draggable-text--cs {
+  background-color: var(--brand-dark-light) !important;
+  border: 1px solid var(--brand-border) !important;
+  border-radius: 8px !important;
+  margin-bottom: 8px !important;
+  padding: 12px !important;
+  transition: all 0.2s ease !important;
+  cursor: grab;
 }
 
-.widget-bar.widget-bar--cs .panel--default.panel--cs:hover {
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  border-color: var(--ocean-blue);
+.sidebar-draggable--cs:hover,
+.sidebar-draggable-fullwidth--cs:hover,
+.sidebar-draggable-heading--cs:hover,
+.sidebar-draggable-paragraph--cs:hover,
+.sidebar-draggable-button--cs:hover,
+.sidebar-draggable-image--cs:hover,
+.sidebar-draggable-list--cs:hover,
+.sidebar-draggable-divider--cs:hover,
+.sidebar-draggable-spacer--cs:hover,
+.sidebar-draggable-social--cs:hover,
+.sidebar-draggable-html--cs:hover,
+.sidebar-draggable-video--cs:hover,
+.sidebar-draggable-form--cs:hover,
+.sidebar-draggable-icons--cs:hover,
+.sidebar-draggable-menu--cs:hover,
+.sidebar-draggable-carousel--cs:hover,
+.sidebar-draggable-text--cs:hover {
+  background-color: var(--brand-hover-bg) !important;
+  border-color: var(--brand-green) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.2);
 }
 
-/* Input Fields */
-.widget-bar.widget-bar--cs input[type="text"],
+/* Locked draggables */
+.sidebar-draggable-locked--cs {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Draggable Row Styles */
+.sidebar-draggable-customrow--cs {
+  background-color: var(--brand-dark-light) !important;
+  border: 1px solid var(--brand-border) !important;
+  border-radius: 8px !important;
+  margin-bottom: 8px !important;
+  padding: 12px !important;
+}
+
+.sidebar-draggable-customrow--cs:hover {
+  background-color: var(--brand-hover-bg) !important;
+  border-color: var(--brand-green) !important;
+}
+
+/* Rows wrapper */
+.rows-wrapper--cs {
+  background-color: transparent;
+}
+
+/* ============================================
+   INPUT FIELDS & FORM ELEMENTS
+   ============================================ */
+
+/* Updated input classes from changelog - Fix "transparent" text cutoff */
+.input-text--cs,
+.input-text-boxed--cs,
+.number-selector--cs {
+  background-color: var(--brand-dark-light) !important;
+  border: 1px solid var(--brand-border) !important;
+  color: var(--brand-text) !important;
+  padding: 10px 12px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  /* Fix text overflow - ensure full text is visible */
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: nowrap !important;
+}
+
+/* Color picker inputs - Fix "transparent" cutoff */
+input[type="text"].input-text--cs,
+input[type="text"].input-text-boxed--cs {
+  padding-right: 40px !important; /* Space for color picker icon */
+  min-width: 120px !important; /* Ensure enough width for "transparent" */
+}
+
+/* Focus states */
+.input-text--cs:focus,
+.input-text-boxed--cs:focus,
+.number-selector--cs:focus {
+  border-color: var(--brand-green) !important;
+  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.2) !important;
+  outline: none !important;
+}
+
+/* Select dropdowns */
 .widget-bar.widget-bar--cs select,
 .widget-bar.widget-bar--cs .dropdown-toggle,
-.widget-bar.widget-bar--cs textarea {
-  background-color: var(--cloud);
-  border: 1px solid var(--stone-gray);
-  color: #333;
-  padding: 6px 10px;
-  border-radius: 3px;
+.line-height-select--cs {
+  background-color: var(--brand-dark-light) !important;
+  border: 1px solid var(--brand-border) !important;
+  color: var(--brand-text) !important;
+  padding: 10px 12px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  min-width: 120px !important;
 }
 
-.widget-bar.widget-bar--cs input[type="text"]:focus,
 .widget-bar.widget-bar--cs select:focus,
-.widget-bar.widget-bar--cs .dropdown-toggle:focus {
-  border-color: var(--ocean-blue);
-  box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.2);
+.widget-bar.widget-bar--cs .dropdown-toggle:focus,
+.line-height-select--cs:focus {
+  border-color: var(--brand-green) !important;
+  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.2) !important;
+  outline: none !important;
 }
 
-/* Buttons */
-body.bee--cs .btn-primary {
-  background-color: var(--deep-teal);
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: all 0.2s;
+/* Textareas */
+.widget-bar.widget-bar--cs textarea {
+  background-color: var(--brand-dark-light) !important;
+  border: 1px solid var(--brand-border) !important;
+  color: var(--brand-text) !important;
+  padding: 10px 12px !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  resize: vertical;
 }
 
-body.bee--cs .btn-primary:hover {
-  background-color: var(--ocean-blue);
-  transform: translateY(-1px);
+.widget-bar.widget-bar--cs textarea:focus {
+  border-color: var(--brand-green) !important;
+  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.2) !important;
+  outline: none !important;
 }
 
-/* Toggle Switches */
+/* Labels */
+.widget__label,
+.widget__label--textbox {
+  color: var(--brand-text-secondary) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  margin-bottom: 6px !important;
+}
+
+/* ============================================
+   PROPERTIES PANEL
+   ============================================ */
+
+/* Properties Panel Title */
+.widget-bar.widget-bar--cs .properties-panel__title--cs h4,
+.panel__title--cs {
+  background: var(--brand-dark-light) !important;
+  color: var(--brand-text) !important;
+  padding: 14px 16px !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  border-bottom: 1px solid var(--brand-border) !important;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+/* General buttons */
+body.bee--cs .btn,
+body.bee--cs .button--cs {
+  background-color: var(--brand-dark-light) !important;
+  color: var(--brand-text) !important;
+  border: 1px solid var(--brand-border) !important;
+  border-radius: 4px !important;
+  padding: 8px 16px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+body.bee--cs .btn:hover,
+body.bee--cs .button--cs:hover {
+  background-color: var(--brand-hover-bg) !important;
+  border-color: var(--brand-green) !important;
+}
+
+/* Primary buttons */
+body.bee--cs .btn-primary,
+body.bee--cs .button-primary--cs {
+  background-color: var(--brand-green) !important;
+  color: var(--brand-text) !important;
+  border: none !important;
+  border-radius: 500px !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+}
+
+body.bee--cs .btn-primary:hover,
+body.bee--cs .button-primary--cs:hover {
+  background-color: var(--brand-green-hover) !important;
+  transform: scale(1.05);
+}
+
+/* Icon buttons */
+.button-icon--cs,
+.button-small--cs {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--brand-text-secondary) !important;
+  padding: 8px !important;
+  border-radius: 50% !important;
+  transition: all 0.2s ease !important;
+}
+
+.button-icon--cs:hover,
+.button-small--cs:hover {
+  background-color: var(--brand-hover-bg) !important;
+  color: var(--brand-text) !important;
+}
+
+.button-active--cs {
+  background-color: var(--brand-green) !important;
+  color: var(--brand-text) !important;
+}
+
+/* ============================================
+   TOGGLE SWITCHES
+   ============================================ */
+
 .widget-bar.widget-bar--cs .tgl-container--cs .tgl_bgd {
-  background-color: var(--sage-green);
+  background-color: var(--brand-text-secondary) !important;
 }
 
 .widget-bar.widget-bar--cs .tgl-container--cs .tgl_switch {
-  background-color: var(--cloud);
+  background-color: var(--brand-text) !important;
 }
 
-/* Selected Elements */
+.widget-bar.widget-bar--cs .tgl-container--cs input:checked + .tgl_bgd {
+  background-color: var(--brand-green) !important;
+}
+
+/* ============================================
+   SELECTED ELEMENTS & DRAG STATES
+   ============================================ */
+
+/* Selected elements on stage */
 body.bee--cs .selected.module-box:before,
 body.bee--cs .selected.row-container .row-selector:before {
-  background-color: var(--deep-teal);
+  background-color: var(--brand-green) !important;
 }
 
-/* Drag States */
+/* Drag states */
 body.bee--cs .dragging.module,
 body.bee--cs .dragging.row {
-  background-color: rgba(152, 255, 152, 0.3); /* mint green */
-  outline: 2px dashed var(--forest-green);
+  background-color: rgba(29, 185, 84, 0.2) !important;
+  outline: 2px dashed var(--brand-green) !important;
 }
 
-/* Properties Panel */
-.widget-bar.widget-bar--cs .properties-panel__title--cs h4 {
-  background: linear-gradient(90deg, var(--earth-brown), var(--olive-green));
-  color: var(--cloud);
-  padding: 12px 15px;
-  font-size: 0.95rem;
+/* ============================================
+   STAGE MODE TOGGLE (Desktop/Mobile)
+   ============================================ */
+
+/* Updated classes from changelog */
+.stagemode__radiogroup--cs {
+  background-color: var(--brand-dark-light) !important;
+  border: 1px solid var(--brand-border) !important;
+  border-radius: 4px !important;
+  padding: 4px !important;
 }
 
-/* Icons */
-.widget-bar.widget-bar--cs svg .icon--color-base {
-  fill: var(--forest-green) !important;
+.radiogroup-mobile--cs,
+.radiogroup-desktop--cs {
+  color: var(--brand-text-secondary) !important;
+  padding: 8px 16px !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease !important;
 }
 
-.widget-bar.widget-bar--cs svg .icon--color-light {
-  fill: var(--sage-green) !important;
+.radiogroup-mobile--cs.active--cs,
+.radiogroup-desktop--cs.active--cs {
+  background-color: var(--brand-green) !important;
+  color: var(--brand-text) !important;
 }
 
-.widget-bar.widget-bar--cs svg .icon--color-dark {
-  fill: var(--earth-brown) !important;
+/* ============================================
+   UNDO/REDO HISTORY
+   ============================================ */
+
+/* Updated classes from changelog */
+.undo-redo__history--open--cs {
+  background-color: var(--brand-dark) !important;
+  border: 1px solid var(--brand-border) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
-/* Scrollbars */
+.history__step--active--cs {
+  background-color: var(--brand-hover-bg) !important;
+  color: var(--brand-green) !important;
+}
+
+.history__step--disabled--cs {
+  color: var(--brand-text-secondary) !important;
+  opacity: 0.5;
+}
+
+/* ============================================
+   SCROLLBARS
+   ============================================ */
+
 .widget-bar.widget-bar--cs ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
 .widget-bar.widget-bar--cs ::-webkit-scrollbar-thumb {
-  background-color: var(--olive-green);
+  background-color: var(--brand-text-secondary);
   border-radius: 6px;
 }
 
+.widget-bar.widget-bar--cs ::-webkit-scrollbar-thumb:hover {
+  background-color: var(--brand-text);
+}
+
 .widget-bar.widget-bar--cs ::-webkit-scrollbar-track {
-  background-color: rgba(0,0,0,0.05);
+  background-color: var(--brand-dark-light);
 }
 
-/* Leaf-inspired accent for active elements */
-body.bee--cs .page-stage .selected.module-box:after,
-body.bee--cs .page-stage .selected.row-container:after {
-  outline: 2px solid var(--forest-green);
-  box-shadow: 0 0 0 2px rgba(34, 139, 34, 0.2);
+/* ============================================
+   ICONS & SVG ELEMENTS
+   ============================================ */
+
+/* Icon collection list */
+.icons-collection-list--cs {
+  background-color: var(--brand-dark-light) !important;
 }
 
-/* Water-inspired animation for buttons */
-@keyframes water-ripple {
-  0% { box-shadow: 0 0 0 0 rgba(30, 144, 255, 0.4); }
-  100% { box-shadow: 0 0 0 10px rgba(30, 144, 255, 0); }
+/* Icon organizer panel */
+.icon-organizer__panel {
+  background-color: var(--brand-dark-light) !important;
+  border: 1px solid var(--brand-border) !important;
+  border-radius: 8px !important;
 }
 
-body.bee--cs .btn-primary:focus {
-  animation: water-ripple 0.6s ease-out;
+/* Panel icon preview wrapper */
+.panel__icon-preview-wrapper {
+  background-color: var(--brand-dark) !important;
+  border-radius: 4px !important;
 }
 
-/* Organic shapes for panels */
-.widget-bar.widget-bar--cs .panel--default.panel--cs {
-  clip-path: polygon(
-    0% 0%,
-    100% 0%,
-    100% calc(100% - 10px),
-    calc(100% - 10px) 100%,
-    0% 100%
-  );
+/* SVG icons - Brand green accent */
+.widget-bar.widget-bar--cs svg .icon--color-base,
+.widget-bar.widget-bar--cs svg path {
+  fill: var(--brand-text-secondary) !important;
 }
 
-/* Natural texture for widget bar */
-.widget-bar.widget-bar--cs {
-  background-image: linear-gradient(
-      rgba(47, 79, 79, 0.9),
-      rgba(47, 79, 79, 0.9)
-    ),
-    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none" stroke="%23228B22" stroke-width="0.5" opacity="0.2"/></svg>');
-  background-size: 40px 40px;
+.widget-bar.widget-bar--cs .tabset__tab--cs.active svg path,
+.widget-bar.widget-bar--cs .button-active--cs svg path {
+  fill: var(--brand-green) !important;
 }
+
+/* ============================================
+   ANIMATIONS & TRANSITIONS
+   ============================================ */
+
+/* Brand-style hover animations */
+@keyframes brand-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(29, 185, 84, 0.4); }
+  100% { box-shadow: 0 0 0 8px rgba(29, 185, 84, 0); }
+}
+
+body.bee--cs .btn-primary:focus,
+body.bee--cs .button-primary--cs:focus {
+  animation: brand-pulse 0.6s ease-out;
+}
+
+/* Smooth transitions for all interactive elements */
+.sidebar-draggable--cs,
+.button--cs,
+.input-text--cs,
+.widget-bar.widget-bar--cs .tabset__tab--cs a {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   PREVIEW MODE (if applicable)
+   ============================================ */
+
+.preview--cs {
+  background-color: var(--brand-dark) !important;
+}
+
+.preview-header--cs {
+  background-color: var(--brand-dark) !important;
+  border-bottom: 1px solid var(--brand-border) !important;
+}
+
+.preview-title--cs {
+  color: var(--brand-text) !important;
+}
+
+/* ============================================
+   RESPONSIVE & ACCESSIBILITY
+   ============================================ */
+
+/* Ensure text is readable */
+body.bee--cs {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus indicators for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--brand-green) !important;
+  outline-offset: 2px !important;
+}
+

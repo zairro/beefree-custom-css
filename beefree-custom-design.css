@@ -16,6 +16,7 @@
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* Brand Color Variables */
 :root {
@@ -79,8 +80,11 @@ body.bee--cs .button-primary--cs {
   color: var(--brand-text) !important;
   border: none !important;
   border-radius: 500px !important;
-  padding: 12px 24px !important;
+  padding: 8px 16px !important;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
   font-weight: 600 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.3px !important;
   transition: all 0.2s ease !important;
 }
 
@@ -89,7 +93,13 @@ body.bee--cs .button-primary--cs {
 body.bee--cs .button--cs:hover,
 body.bee--cs .button-primary--cs:hover {
   background-color: var(--brand-green-hover) !important;
-  transform: scale(1.05);
+  transform: scale(1.02);
+}
+
+/* Header button spacing */
+.header--cs .btn-primary,
+.header--cs .BeeButton_beeButton__SlzKf {
+  margin: 0 4px !important;
 }
 
 /* Icons in header */
@@ -111,16 +121,18 @@ body.bee--cs .button-primary--cs:hover {
 /* Tabs - Left Panel Navigation */
 .widget-bar.widget-bar--cs .tabset__tab--cs a {
   background-color: transparent;
-  color: var(--brand-text-secondary);
+  color: var(--brand-text) !important;
   border-bottom: 2px solid transparent;
   transition: all 0.2s ease;
+  opacity: 0.85;
 }
 
 .widget-bar.widget-bar--cs .tabset__tab--cs.active a {
   background-color: transparent;
-  color: var(--brand-text);
+  color: var(--brand-text) !important;
   border-bottom-color: var(--brand-green);
   font-weight: 600;
+  opacity: 1;
 }
 
 .widget-bar.widget-bar--cs .tabset__tab--cs a:hover {
@@ -178,6 +190,49 @@ body.bee--cs .button-primary--cs:hover {
   padding: 12px !important;
   transition: all 0.2s ease !important;
   cursor: grab;
+  /* Ensure text is visible with high contrast */
+  color: var(--brand-text) !important;
+}
+
+/* Text labels inside content blocks - ensure visibility */
+.sidebar-draggable--cs *,
+.sidebar-draggable-heading--cs *,
+.sidebar-draggable-paragraph--cs *,
+.sidebar-draggable-button--cs *,
+.sidebar-draggable-image--cs *,
+.sidebar-draggable-list--cs *,
+.sidebar-draggable-divider--cs *,
+.sidebar-draggable-spacer--cs *,
+.sidebar-draggable-social--cs *,
+.sidebar-draggable-html--cs *,
+.sidebar-draggable-video--cs *,
+.sidebar-draggable-form--cs *,
+.sidebar-draggable-icons--cs *,
+.sidebar-draggable-menu--cs *,
+.sidebar-draggable-carousel--cs *,
+.sidebar-draggable-text--cs * {
+  color: var(--brand-text) !important;
+}
+
+/* Icons inside content blocks - make them brighter */
+.sidebar-draggable--cs svg,
+.sidebar-draggable-heading--cs svg,
+.sidebar-draggable-paragraph--cs svg,
+.sidebar-draggable-button--cs svg,
+.sidebar-draggable-image--cs svg,
+.sidebar-draggable-list--cs svg,
+.sidebar-draggable-divider--cs svg,
+.sidebar-draggable-spacer--cs svg,
+.sidebar-draggable-social--cs svg,
+.sidebar-draggable-html--cs svg,
+.sidebar-draggable-video--cs svg,
+.sidebar-draggable-form--cs svg,
+.sidebar-draggable-icons--cs svg,
+.sidebar-draggable-menu--cs svg,
+.sidebar-draggable-carousel--cs svg,
+.sidebar-draggable-text--cs svg {
+  fill: var(--brand-text) !important;
+  opacity: 0.9 !important;
 }
 
 .sidebar-draggable--cs:hover,
@@ -308,10 +363,35 @@ input[type="text"].input-text-boxed--cs {
 /* Labels */
 .widget__label,
 .widget__label--textbox {
-  color: var(--brand-text-secondary) !important;
+  color: var(--brand-text) !important;
   font-size: 13px !important;
   font-weight: 500 !important;
   margin-bottom: 6px !important;
+}
+
+/* Ensure all text in properties panel is visible */
+.widget-bar.widget-bar--cs .properties-panel__title--cs,
+.widget-bar.widget-bar--cs .properties-panel__title--cs *,
+.panel__title--cs,
+.panel__title--cs * {
+  color: var(--brand-text) !important;
+}
+
+/* Text in widget sections - ensure visibility */
+.widget-bar.widget-bar--cs,
+.widget-bar.widget-bar--cs * {
+  color: var(--brand-text) !important;
+}
+
+/* Override secondary text color for better contrast in dark areas */
+.widget-bar.widget-bar--cs .tabset__tab--cs a {
+  color: var(--brand-text) !important;
+  opacity: 0.85;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs.active a {
+  color: var(--brand-text) !important;
+  opacity: 1;
 }
 
 /* ============================================
@@ -360,8 +440,11 @@ body.bee--cs .button-primary--cs {
   color: var(--brand-text) !important;
   border: none !important;
   border-radius: 500px !important;
-  padding: 12px 24px !important;
+  padding: 8px 16px !important;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
   font-weight: 600 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.3px !important;
 }
 
 body.bee--cs .btn-primary:hover,

@@ -301,10 +301,54 @@ body.bee--cs .button-primary--cs:hover {
 .sidebar-draggable-menu--cs:hover,
 .sidebar-draggable-carousel--cs:hover,
 .sidebar-draggable-text--cs:hover {
-  background-color: var(--brand-hover-bg) !important;
+  background-color: var(--brand-light-bg) !important;
   border-color: var(--brand-green) !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(29, 185, 84, 0.2);
+  /* Dark text on light hover background */
+  color: var(--brand-text-dark) !important;
+}
+
+/* Ensure all child elements also get dark text on hover */
+.sidebar-draggable--cs:hover *,
+.sidebar-draggable-fullwidth--cs:hover *,
+.sidebar-draggable-heading--cs:hover *,
+.sidebar-draggable-paragraph--cs:hover *,
+.sidebar-draggable-button--cs:hover *,
+.sidebar-draggable-image--cs:hover *,
+.sidebar-draggable-list--cs:hover *,
+.sidebar-draggable-divider--cs:hover *,
+.sidebar-draggable-spacer--cs:hover *,
+.sidebar-draggable-social--cs:hover *,
+.sidebar-draggable-html--cs:hover *,
+.sidebar-draggable-video--cs:hover *,
+.sidebar-draggable-form--cs:hover *,
+.sidebar-draggable-icons--cs:hover *,
+.sidebar-draggable-menu--cs:hover *,
+.sidebar-draggable-carousel--cs:hover *,
+.sidebar-draggable-text--cs:hover * {
+  color: var(--brand-text-dark) !important;
+}
+
+/* SVG icons on hover should also be dark */
+.sidebar-draggable--cs:hover svg,
+.sidebar-draggable-heading--cs:hover svg,
+.sidebar-draggable-paragraph--cs:hover svg,
+.sidebar-draggable-button--cs:hover svg,
+.sidebar-draggable-image--cs:hover svg,
+.sidebar-draggable-list--cs:hover svg,
+.sidebar-draggable-divider--cs:hover svg,
+.sidebar-draggable-spacer--cs:hover svg,
+.sidebar-draggable-social--cs:hover svg,
+.sidebar-draggable-html--cs:hover svg,
+.sidebar-draggable-video--cs:hover svg,
+.sidebar-draggable-form--cs:hover svg,
+.sidebar-draggable-icons--cs:hover svg,
+.sidebar-draggable-menu--cs:hover svg,
+.sidebar-draggable-carousel--cs:hover svg,
+.sidebar-draggable-text--cs:hover svg {
+  fill: var(--brand-text-dark) !important;
+  opacity: 1 !important;
 }
 
 /* Locked draggables */
@@ -340,9 +384,9 @@ body.bee--cs .button-primary--cs:hover {
 .input-text--cs,
 .input-text-boxed--cs,
 .number-selector--cs {
-  background-color: var(--brand-dark-light) !important;
-  border: 1px solid var(--brand-border) !important;
-  color: var(--brand-text) !important;
+  background-color: var(--brand-light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  color: var(--brand-text-dark) !important;
   padding: 10px 12px !important;
   border-radius: 4px !important;
   font-size: 14px !important;
@@ -375,9 +419,9 @@ input[type="text"].input-text-boxed--cs {
 .widget-bar.widget-bar--cs select,
 .widget-bar.widget-bar--cs .dropdown-toggle,
 .line-height-select--cs {
-  background-color: var(--brand-dark-light) !important;
-  border: 1px solid var(--brand-border) !important;
-  color: var(--brand-text) !important;
+  background-color: var(--brand-light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  color: var(--brand-text-dark) !important;
   padding: 10px 12px !important;
   border-radius: 4px !important;
   font-size: 14px !important;
@@ -394,9 +438,9 @@ input[type="text"].input-text-boxed--cs {
 
 /* Textareas */
 .widget-bar.widget-bar--cs textarea {
-  background-color: var(--brand-dark-light) !important;
-  border: 1px solid var(--brand-border) !important;
-  color: var(--brand-text) !important;
+  background-color: var(--brand-light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  color: var(--brand-text-dark) !important;
   padding: 10px 12px !important;
   border-radius: 4px !important;
   font-size: 14px !important;
@@ -409,25 +453,49 @@ input[type="text"].input-text-boxed--cs {
   outline: none !important;
 }
 
-/* Labels */
+/* Labels - smart contrast based on parent background */
 .widget__label,
 .widget__label--textbox {
-  color: var(--brand-text) !important;
+  color: var(--brand-text-dark) !important;
   font-size: 13px !important;
   font-weight: 500 !important;
   margin-bottom: 6px !important;
 }
 
-/* Ensure all text in properties panel is visible */
+/* Labels on dark backgrounds should be white */
+.widget-bar.widget-bar--cs .properties-panel__title--cs .widget__label,
+[style*="background-color: #121212"] .widget__label,
+[style*="background-color: #191414"] .widget__label,
+[class*="dark"] .widget__label {
+  color: var(--brand-text) !important;
+}
+
+/* Properties panel - black text on white backgrounds */
 .widget-bar.widget-bar--cs .properties-panel__title--cs,
 .widget-bar.widget-bar--cs .properties-panel__title--cs *,
 .panel__title--cs,
 .panel__title--cs * {
+  color: var(--brand-text-dark) !important;
+}
+
+/* If properties panel has dark background, use white text */
+.widget-bar.widget-bar--cs .properties-panel__title--cs[style*="background-color: #121212"],
+.widget-bar.widget-bar--cs .properties-panel__title--cs[style*="background-color: #191414"] {
   color: var(--brand-text) !important;
 }
 
-/* Text in widget sections - smart contrast based on background */
+.widget-bar.widget-bar--cs .properties-panel__title--cs[style*="background-color: #121212"] *,
+.widget-bar.widget-bar--cs .properties-panel__title--cs[style*="background-color: #191414"] * {
+  color: var(--brand-text) !important;
+}
+
+/* Text in widget sections - default to dark text for white areas */
 .widget-bar.widget-bar--cs {
+  color: var(--brand-text-dark) !important;
+}
+
+/* Specific dark background areas get white text */
+.widget-bar.widget-bar--cs .widgets-section__title--cs {
   color: var(--brand-text) !important;
 }
 
@@ -462,17 +530,17 @@ input[type="text"].input-text-boxed--cs {
    PROPERTIES PANEL
    ============================================ */
 
-/* Properties Panel Title */
+/* Properties Panel Title - dark text on white by default */
 .widget-bar.widget-bar--cs .properties-panel__title--cs h4,
 .panel__title--cs {
-  background: var(--brand-dark-light) !important;
-  color: var(--brand-text) !important;
+  background: var(--brand-light-bg) !important;
+  color: var(--brand-text-dark) !important;
   padding: 14px 16px !important;
   font-size: 0.875rem !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
   letter-spacing: 1px !important;
-  border-bottom: 1px solid var(--brand-border) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
 /* ============================================
@@ -760,7 +828,19 @@ body.bee--cs [class*="white"]:not([class*="dark"]) {
 
 body.bee--cs [style*="background-color: #fff"] *,
 body.bee--cs [style*="background-color: white"] *,
-body.bee--cs [style*="background-color: rgb(255"] * {
+body.bee--cs [style*="background-color: rgb(255"] *,
+body.bee--cs [style*="background: #fff"] *,
+body.bee--cs [style*="background: white"] *,
+body.bee--cs [style*="background: rgb(255"] * {
+  color: var(--brand-text-dark) !important;
+}
+
+/* Specific widget bar elements on white backgrounds */
+.widget-bar.widget-bar--cs > *:not(.widgets-section__title--cs):not(.tabset__tab--cs) {
+  color: var(--brand-text-dark) !important;
+}
+
+.widget-bar.widget-bar--cs > *:not(.widgets-section__title--cs):not(.tabset__tab--cs) * {
   color: var(--brand-text-dark) !important;
 }
 

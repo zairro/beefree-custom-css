@@ -40,9 +40,9 @@ body.bee--cs {
   color: var(--brand-text);
 }
 
-/* Main Editor Container */
+/* Main Editor Container - Light background for template stage */
 .bee--cs .page-stage {
-  background-color: var(--brand-dark-light);
+  background-color: var(--brand-light-bg) !important;
   border: 1px solid var(--brand-border);
 }
 
@@ -191,16 +191,16 @@ body.bee--cs .button-primary--cs:hover {
   opacity: 1;
 }
 
-/* Widget Sections */
+/* Widget Sections - Light background with black text */
 .widget-bar.widget-bar--cs .widgets-section__title--cs {
-  background: var(--brand-dark-light);
-  color: var(--brand-text);
+  background: var(--brand-light-bg) !important;
+  color: var(--brand-text-dark) !important;
   padding: 12px 16px;
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border-bottom: 1px solid var(--brand-border);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* ============================================
@@ -208,6 +208,7 @@ body.bee--cs .button-primary--cs:hover {
    ============================================ */
 
 /* Updated classes from changelog - sidebar-draggable--cs */
+/* Content tiles - Light background for better visibility */
 .sidebar-draggable--cs,
 .sidebar-draggable-fullwidth--cs,
 .sidebar-draggable-heading--cs,
@@ -225,18 +226,18 @@ body.bee--cs .button-primary--cs:hover {
 .sidebar-draggable-menu--cs,
 .sidebar-draggable-carousel--cs,
 .sidebar-draggable-text--cs {
-  background-color: var(--brand-dark-light) !important;
-  border: 1px solid var(--brand-border) !important;
+  background-color: var(--brand-light-bg) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
   border-radius: 8px !important;
   margin-bottom: 8px !important;
   padding: 12px !important;
   transition: all 0.2s ease !important;
   cursor: grab;
-  /* Ensure text is visible with high contrast */
-  color: var(--brand-text) !important;
+  /* Light background = black text for visibility */
+  color: var(--brand-text-dark) !important;
 }
 
-/* Text labels inside content blocks - ensure visibility on dark backgrounds */
+/* Text labels inside content blocks - black text on light background */
 .sidebar-draggable--cs,
 .sidebar-draggable-heading--cs,
 .sidebar-draggable-paragraph--cs,
@@ -253,8 +254,8 @@ body.bee--cs .button-primary--cs:hover {
 .sidebar-draggable-menu--cs,
 .sidebar-draggable-carousel--cs,
 .sidebar-draggable-text--cs {
-  /* These have dark backgrounds, so use white text */
-  color: var(--brand-text) !important;
+  /* Light backgrounds = black text */
+  color: var(--brand-text-dark) !important;
 }
 
 /* But if content blocks have light backgrounds, use dark text */
@@ -273,7 +274,7 @@ body.bee--cs .button-primary--cs:hover {
   color: var(--brand-text-dark) !important;
 }
 
-/* Icons inside content blocks - make them brighter */
+/* Icons inside content blocks - black icons on light background */
 .sidebar-draggable--cs svg,
 .sidebar-draggable-heading--cs svg,
 .sidebar-draggable-paragraph--cs svg,
@@ -290,8 +291,8 @@ body.bee--cs .button-primary--cs:hover {
 .sidebar-draggable-menu--cs svg,
 .sidebar-draggable-carousel--cs svg,
 .sidebar-draggable-text--cs svg {
-  fill: var(--brand-text) !important;
-  opacity: 0.9 !important;
+  fill: var(--brand-text-dark) !important;
+  opacity: 1 !important;
 }
 
 .sidebar-draggable--cs:hover,
@@ -311,11 +312,11 @@ body.bee--cs .button-primary--cs:hover {
 .sidebar-draggable-menu--cs:hover,
 .sidebar-draggable-carousel--cs:hover,
 .sidebar-draggable-text--cs:hover {
-  background-color: rgba(255, 255, 255, 0.15) !important;
+  background-color: rgba(29, 185, 84, 0.1) !important;
   border-color: var(--brand-green) !important;
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(29, 185, 84, 0.2);
-  /* When hovered, background is lighter, so text should be black */
+  /* Hovered tiles keep black text */
   color: var(--brand-text-dark) !important;
 }
 
@@ -591,21 +592,59 @@ body.bee--cs .button-primary--cs:hover {
   transform: scale(1.05);
 }
 
-/* Icon buttons */
+/* Icon buttons - Plus/Minus buttons - Green icons, no hover effect */
 .button-icon--cs,
 .button-small--cs {
   background-color: transparent !important;
   border: none !important;
-  color: var(--brand-text-secondary) !important;
+  color: var(--brand-green) !important;
   padding: 8px !important;
   border-radius: 50% !important;
-  transition: all 0.2s ease !important;
+  transition: none !important;
 }
 
 .button-icon--cs:hover,
 .button-small--cs:hover {
-  background-color: var(--brand-hover-bg) !important;
-  color: var(--brand-text) !important;
+  background-color: transparent !important;
+  color: var(--brand-green) !important;
+  transform: none !important;
+}
+
+/* Plus/Minus buttons specifically - Green icons only */
+body.bee--cs button[class*="plus"],
+body.bee--cs button[class*="minus"],
+body.bee--cs button[class*="add"],
+body.bee--cs button[class*="remove"],
+body.bee--cs .number-selector--cs button,
+body.bee--cs [class*="increment"],
+body.bee--cs [class*="decrement"] {
+  background-color: transparent !important;
+  border: none !important;
+  color: var(--brand-green) !important;
+  padding: 4px 8px !important;
+  transition: none !important;
+}
+
+body.bee--cs button[class*="plus"]:hover,
+body.bee--cs button[class*="minus"]:hover,
+body.bee--cs button[class*="add"]:hover,
+body.bee--cs button[class*="remove"]:hover,
+body.bee--cs .number-selector--cs button:hover,
+body.bee--cs [class*="increment"]:hover,
+body.bee--cs [class*="decrement"]:hover {
+  background-color: transparent !important;
+  color: var(--brand-green) !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* SVG icons in plus/minus buttons */
+body.bee--cs button[class*="plus"] svg path,
+body.bee--cs button[class*="minus"] svg path,
+body.bee--cs button[class*="add"] svg path,
+body.bee--cs button[class*="remove"] svg path,
+body.bee--cs .number-selector--cs button svg path {
+  fill: var(--brand-green) !important;
 }
 
 .button-active--cs {
@@ -918,5 +957,24 @@ body.bee--cs [class*="menu"] * {
 .widget-bar.widget-bar--cs [style*="background-color: #fff"] select,
 .widget-bar.widget-bar--cs [style*="background-color: white"] select {
   color: var(--brand-text-dark) !important;
+}
+
+/* ============================================
+   ROWS - Remove typing option, keep dropdown only
+   ============================================ */
+
+/* Hide input fields for row names - only show dropdown */
+.widget-bar.widget-bar--cs [class*="row"] input[type="text"],
+.widget-bar.widget-bar--cs [class*="row"] input[type="text"].input-text--cs,
+.widget-bar.widget-bar--cs [class*="row-name"] input,
+.widget-bar.widget-bar--cs [class*="row"] [class*="name"] input[type="text"] {
+  display: none !important;
+}
+
+/* Ensure row dropdowns are visible */
+.widget-bar.widget-bar--cs [class*="row"] select,
+.widget-bar.widget-bar--cs [class*="row"] .dropdown-toggle {
+  display: block !important;
+  visibility: visible !important;
 }
 

@@ -22,15 +22,16 @@
   --bg-light: #F5F5F5;
 }
 
-/* Base - Cursive font for noticeable difference */
-body.bee--cs {
+/* Base - Cursive font ONLY for UI elements, NOT template content */
+.widget-bar.widget-bar--cs,
+.widget-bar.widget-bar--cs *,
+.header--cs,
+.header--cs * {
   font-family: 'Kalam', 'Dancing Script', cursive, sans-serif;
 }
 
-/* Stage - Keep white background */
-.bee--cs .page-stage {
-  background-color: var(--bg-white) !important;
-}
+/* Stage - DO NOT style - let template remain unchanged */
+/* Removed stage styling to prevent affecting template design */
 
 /* ============================================
    TOP BAR / HEADER
@@ -117,12 +118,13 @@ body.bee--cs .button-primary--cs:hover,
 .sidebar-draggable-carousel--cs,
 .sidebar-draggable-text--cs {
   background-color: var(--green-light) !important;
-  border: 1px solid var(--green-border) !important;
+  border: 2px solid var(--green-primary) !important;
   border-radius: 8px !important;
-  color: var(--text-dark) !important;
+  color: var(--green-primary) !important;
+  font-weight: 600 !important;
 }
 
-/* Content tile text and icons - Dark on light green */
+/* Content tile text and icons - GREEN for noticeable branding */
 .sidebar-draggable--cs *,
 .sidebar-draggable-heading--cs *,
 .sidebar-draggable-paragraph--cs *,
@@ -139,10 +141,10 @@ body.bee--cs .button-primary--cs:hover,
 .sidebar-draggable-menu--cs *,
 .sidebar-draggable-carousel--cs *,
 .sidebar-draggable-text--cs * {
-  color: var(--text-dark) !important;
+  color: var(--green-primary) !important;
 }
 
-/* Content tile icons */
+/* Content tile icons - GREEN for noticeable branding */
 .sidebar-draggable--cs svg path,
 .sidebar-draggable-heading--cs svg path,
 .sidebar-draggable-paragraph--cs svg path,
@@ -159,10 +161,10 @@ body.bee--cs .button-primary--cs:hover,
 .sidebar-draggable-menu--cs svg path,
 .sidebar-draggable-carousel--cs svg path,
 .sidebar-draggable-text--cs svg path {
-  fill: var(--text-dark) !important;
+  fill: var(--green-primary) !important;
 }
 
-/* Content tile hover - Subtle green tint */
+/* Content tile hover - Darker green background, keep green text */
 .sidebar-draggable--cs:hover,
 .sidebar-draggable-heading--cs:hover,
 .sidebar-draggable-paragraph--cs:hover,
@@ -179,8 +181,48 @@ body.bee--cs .button-primary--cs:hover,
 .sidebar-draggable-menu--cs:hover,
 .sidebar-draggable-carousel--cs:hover,
 .sidebar-draggable-text--cs:hover {
-  background-color: rgba(29, 185, 84, 0.15) !important;
-  border-color: var(--green-primary) !important;
+  background-color: rgba(29, 185, 84, 0.2) !important;
+  border-color: var(--green-hover) !important;
+  border-width: 2px !important;
+}
+
+/* Hovered tiles keep green text */
+.sidebar-draggable--cs:hover *,
+.sidebar-draggable-heading--cs:hover *,
+.sidebar-draggable-paragraph--cs:hover *,
+.sidebar-draggable-button--cs:hover *,
+.sidebar-draggable-image--cs:hover *,
+.sidebar-draggable-list--cs:hover *,
+.sidebar-draggable-divider--cs:hover *,
+.sidebar-draggable-spacer--cs:hover *,
+.sidebar-draggable-social--cs:hover *,
+.sidebar-draggable-html--cs:hover *,
+.sidebar-draggable-video--cs:hover *,
+.sidebar-draggable-form--cs:hover *,
+.sidebar-draggable-icons--cs:hover *,
+.sidebar-draggable-menu--cs:hover *,
+.sidebar-draggable-carousel--cs:hover *,
+.sidebar-draggable-text--cs:hover * {
+  color: var(--green-primary) !important;
+}
+
+.sidebar-draggable--cs:hover svg path,
+.sidebar-draggable-heading--cs:hover svg path,
+.sidebar-draggable-paragraph--cs:hover svg path,
+.sidebar-draggable-button--cs:hover svg path,
+.sidebar-draggable-image--cs:hover svg path,
+.sidebar-draggable-list--cs:hover svg path,
+.sidebar-draggable-divider--cs:hover svg path,
+.sidebar-draggable-spacer--cs:hover svg path,
+.sidebar-draggable-social--cs:hover svg path,
+.sidebar-draggable-html--cs:hover svg path,
+.sidebar-draggable-video--cs:hover svg path,
+.sidebar-draggable-form--cs:hover svg path,
+.sidebar-draggable-icons--cs:hover svg path,
+.sidebar-draggable-menu--cs:hover svg path,
+.sidebar-draggable-carousel--cs:hover svg path,
+.sidebar-draggable-text--cs:hover svg path {
+  fill: var(--green-primary) !important;
 }
 
 /* ============================================
@@ -261,24 +303,27 @@ body.bee--cs .button-icon--cs svg path {
 }
 
 /* ============================================
-   GENERAL - Ensure light backgrounds everywhere
+   WIDGET BAR ONLY - Ensure light backgrounds
    ============================================ */
 
-/* Remove any dark backgrounds */
-body.bee--cs [style*="background-color: #121212"],
-body.bee--cs [style*="background-color: #191414"] {
+/* Remove dark backgrounds ONLY in widget bar, NOT in stage */
+.widget-bar.widget-bar--cs [style*="background-color: #121212"],
+.widget-bar.widget-bar--cs [style*="background-color: #191414"] {
   background-color: var(--bg-white) !important;
   color: var(--text-dark) !important;
 }
 
-/* Ensure text is dark on light backgrounds */
-body.bee--cs [style*="background-color: #fff"],
-body.bee--cs [style*="background-color: white"],
-body.bee--cs [style*="background-color: rgb(255"] {
+/* Ensure text is dark on light backgrounds ONLY in widget bar */
+.widget-bar.widget-bar--cs [style*="background-color: #fff"],
+.widget-bar.widget-bar--cs [style*="background-color: white"],
+.widget-bar.widget-bar--cs [style*="background-color: rgb(255"] {
   color: var(--text-dark) !important;
 }
 
-body.bee--cs [style*="background-color: #fff"] *,
-body.bee--cs [style*="background-color: white"] * {
+.widget-bar.widget-bar--cs [style*="background-color: #fff"] *,
+.widget-bar.widget-bar--cs [style*="background-color: white"] * {
   color: var(--text-dark) !important;
 }
+
+/* IMPORTANT: Do NOT style anything in the stage/page-stage area */
+/* This ensures the template design remains completely unchanged */

@@ -25,9 +25,12 @@
   --brand-dark: #191414;
   --brand-dark-light: #121212;
   --brand-text: #FFFFFF;
+  --brand-text-dark: #191414;
   --brand-text-secondary: #B3B3B3;
   --brand-border: rgba(255, 255, 255, 0.1);
   --brand-hover-bg: rgba(255, 255, 255, 0.1);
+  --brand-light-bg: #FFFFFF;
+  --brand-light-bg-alt: #F5F5F5;
 }
 
 /* Base Styles - Use specific selectors with body.bee--cs */
@@ -118,35 +121,64 @@ body.bee--cs .button-primary--cs:hover {
   border-right: 1px solid var(--brand-border);
 }
 
-/* Tabs - Left Panel Navigation */
+/* Tabs - Left Panel Navigation - Smart contrast */
+.widget-bar.widget-bar--cs .tabset__tab--cs {
+  /* Default: assume dark background, use white text */
+  color: var(--brand-text-dark) !important;
+}
+
 .widget-bar.widget-bar--cs .tabset__tab--cs a {
   background-color: transparent;
-  color: var(--brand-text) !important;
+  /* Check if tab has light background, if so use dark text */
+  color: var(--brand-text-dark) !important;
   border-bottom: 2px solid transparent;
   transition: all 0.2s ease;
   opacity: 0.85;
 }
 
+/* Active tab on dark background gets white text */
+.widget-bar.widget-bar--cs .tabset__tab--cs.active {
+  background-color: var(--brand-dark-light) !important;
+}
+
 .widget-bar.widget-bar--cs .tabset__tab--cs.active a {
-  background-color: transparent;
+  background-color: var(--brand-dark-light) !important;
   color: var(--brand-text) !important;
   border-bottom-color: var(--brand-green);
   font-weight: 600;
   opacity: 1;
 }
 
-.widget-bar.widget-bar--cs .tabset__tab--cs a:hover {
-  color: var(--brand-text);
-  background-color: var(--brand-hover-bg);
+/* Inactive tabs on light background keep dark text */
+.widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) {
+  background-color: var(--brand-light-bg) !important;
 }
 
-/* Tab Icons */
+.widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) a:hover {
+  color: var(--brand-text-dark) !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs.active a:hover {
+  color: var(--brand-text) !important;
+  background-color: var(--brand-hover-bg) !important;
+}
+
+/* Tab Icons - Smart contrast */
 .widget-bar.widget-bar--cs .tabs__iconwrapper svg path {
-  fill: var(--brand-text-secondary) !important;
+  /* Inactive tabs on light background get dark icons */
+  fill: var(--brand-text-dark) !important;
+  opacity: 0.7;
 }
 
 .widget-bar.widget-bar--cs .tabset__tab--cs.active .tabs__iconwrapper svg path {
   fill: var(--brand-green) !important;
+  opacity: 1;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) .tabs__iconwrapper svg path {
+  fill: var(--brand-text-dark) !important;
+  opacity: 0.7;
 }
 
 /* Widget Sections */
@@ -194,24 +226,41 @@ body.bee--cs .button-primary--cs:hover {
   color: var(--brand-text) !important;
 }
 
-/* Text labels inside content blocks - ensure visibility */
-.sidebar-draggable--cs *,
-.sidebar-draggable-heading--cs *,
-.sidebar-draggable-paragraph--cs *,
-.sidebar-draggable-button--cs *,
-.sidebar-draggable-image--cs *,
-.sidebar-draggable-list--cs *,
-.sidebar-draggable-divider--cs *,
-.sidebar-draggable-spacer--cs *,
-.sidebar-draggable-social--cs *,
-.sidebar-draggable-html--cs *,
-.sidebar-draggable-video--cs *,
-.sidebar-draggable-form--cs *,
-.sidebar-draggable-icons--cs *,
-.sidebar-draggable-menu--cs *,
-.sidebar-draggable-carousel--cs *,
-.sidebar-draggable-text--cs * {
+/* Text labels inside content blocks - ensure visibility on dark backgrounds */
+.sidebar-draggable--cs,
+.sidebar-draggable-heading--cs,
+.sidebar-draggable-paragraph--cs,
+.sidebar-draggable-button--cs,
+.sidebar-draggable-image--cs,
+.sidebar-draggable-list--cs,
+.sidebar-draggable-divider--cs,
+.sidebar-draggable-spacer--cs,
+.sidebar-draggable-social--cs,
+.sidebar-draggable-html--cs,
+.sidebar-draggable-video--cs,
+.sidebar-draggable-form--cs,
+.sidebar-draggable-icons--cs,
+.sidebar-draggable-menu--cs,
+.sidebar-draggable-carousel--cs,
+.sidebar-draggable-text--cs {
+  /* These have dark backgrounds, so use white text */
   color: var(--brand-text) !important;
+}
+
+/* But if content blocks have light backgrounds, use dark text */
+.sidebar-draggable--cs[style*="background-color: #fff"],
+.sidebar-draggable--cs[style*="background-color: white"],
+.sidebar-draggable--cs[style*="background-color: rgb(255"],
+.sidebar-draggable--cs[style*="background-color: rgba(255"],
+.sidebar-draggable-heading--cs[style*="background-color: #fff"],
+.sidebar-draggable-paragraph--cs[style*="background-color: #fff"] {
+  color: var(--brand-text-dark) !important;
+}
+
+.sidebar-draggable--cs[style*="background-color: #fff"] *,
+.sidebar-draggable-heading--cs[style*="background-color: #fff"] *,
+.sidebar-draggable-paragraph--cs[style*="background-color: #fff"] * {
+  color: var(--brand-text-dark) !important;
 }
 
 /* Icons inside content blocks - make them brighter */
@@ -377,22 +426,37 @@ input[type="text"].input-text-boxed--cs {
   color: var(--brand-text) !important;
 }
 
-/* Text in widget sections - ensure visibility */
-.widget-bar.widget-bar--cs,
-.widget-bar.widget-bar--cs * {
+/* Text in widget sections - smart contrast based on background */
+.widget-bar.widget-bar--cs {
   color: var(--brand-text) !important;
 }
 
-/* Override secondary text color for better contrast in dark areas */
-.widget-bar.widget-bar--cs .tabset__tab--cs a {
-  color: var(--brand-text) !important;
-  opacity: 0.85;
+/* Light backgrounds get dark text */
+.widget-bar.widget-bar--cs [style*="background-color: #fff"],
+.widget-bar.widget-bar--cs [style*="background-color: #FFF"],
+.widget-bar.widget-bar--cs [style*="background-color: white"],
+.widget-bar.widget-bar--cs [style*="background-color: rgb(255"],
+.widget-bar.widget-bar--cs [style*="background-color: rgba(255"],
+.widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) a,
+.widget-bar.widget-bar--cs [class*="light"],
+.widget-bar.widget-bar--cs [class*="white"] {
+  color: var(--brand-text-dark) !important;
 }
 
-.widget-bar.widget-bar--cs .tabset__tab--cs.active a {
-  color: var(--brand-text) !important;
-  opacity: 1;
+/* Ensure tabs with light backgrounds have dark text */
+.widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) {
+  color: var(--brand-text-dark) !important;
 }
+
+.widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) a {
+  color: var(--brand-text-dark) !important;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) svg path {
+  fill: var(--brand-text-dark) !important;
+}
+
+/* Override removed - handled above with smart contrast */
 
 /* ============================================
    PROPERTIES PANEL
@@ -600,14 +664,24 @@ body.bee--cs .dragging.row {
   border-radius: 4px !important;
 }
 
-/* SVG icons - Brand green accent */
+/* SVG icons - Brand green accent with smart contrast */
 .widget-bar.widget-bar--cs svg .icon--color-base,
 .widget-bar.widget-bar--cs svg path {
-  fill: var(--brand-text-secondary) !important;
+  /* Default: dark icons for light backgrounds */
+  fill: var(--brand-text-dark) !important;
+  opacity: 0.7;
 }
 
+/* Dark background areas get white icons */
 .widget-bar.widget-bar--cs .tabset__tab--cs.active svg path,
-.widget-bar.widget-bar--cs .button-active--cs svg path {
+.widget-bar.widget-bar--cs .button-active--cs svg path,
+.widget-bar.widget-bar--cs [style*="background-color: #121212"] svg path,
+.widget-bar.widget-bar--cs [style*="background-color: #191414"] svg path {
+  fill: var(--brand-text) !important;
+  opacity: 1;
+}
+
+.widget-bar.widget-bar--cs .tabset__tab--cs.active svg path {
   fill: var(--brand-green) !important;
 }
 
@@ -665,5 +739,66 @@ body.bee--cs {
 *:focus-visible {
   outline: 2px solid var(--brand-green) !important;
   outline-offset: 2px !important;
+}
+
+/* ============================================
+   GLOBAL CONTRAST ENFORCEMENT
+   ============================================ */
+
+/* Ensure proper contrast: Light backgrounds get dark text, dark backgrounds get light text */
+body.bee--cs [style*="background-color: #fff"],
+body.bee--cs [style*="background-color: #FFF"],
+body.bee--cs [style*="background-color: white"],
+body.bee--cs [style*="background-color: rgb(255"],
+body.bee--cs [style*="background-color: rgba(255, 255"],
+body.bee--cs [style*="background-color: rgba(245"],
+body.bee--cs [style*="background-color: rgba(250"],
+body.bee--cs [class*="light"]:not([class*="dark"]),
+body.bee--cs [class*="white"]:not([class*="dark"]) {
+  color: var(--brand-text-dark) !important;
+}
+
+body.bee--cs [style*="background-color: #fff"] *,
+body.bee--cs [style*="background-color: white"] *,
+body.bee--cs [style*="background-color: rgb(255"] * {
+  color: var(--brand-text-dark) !important;
+}
+
+/* Dark backgrounds get white text */
+body.bee--cs [style*="background-color: #121212"],
+body.bee--cs [style*="background-color: #191414"],
+body.bee--cs [style*="background-color: rgb(18"],
+body.bee--cs [style*="background-color: rgb(25"],
+body.bee--cs [style*="background-color: rgba(18"],
+body.bee--cs [style*="background-color: rgba(25"],
+body.bee--cs [class*="dark"]:not([class*="light"]) {
+  color: var(--brand-text) !important;
+}
+
+body.bee--cs [style*="background-color: #121212"] *,
+body.bee--cs [style*="background-color: #191414"] * {
+  color: var(--brand-text) !important;
+}
+
+/* Override for specific elements that should always have contrast */
+body.bee--cs input[type="text"],
+body.bee--cs input[type="number"],
+body.bee--cs select,
+body.bee--cs textarea {
+  /* These are handled by their specific classes above */
+}
+
+/* Ensure dropdowns and modals have proper contrast */
+body.bee--cs [class*="dropdown"],
+body.bee--cs [class*="modal"],
+body.bee--cs [class*="popup"] {
+  background-color: var(--brand-light-bg) !important;
+  color: var(--brand-text-dark) !important;
+}
+
+body.bee--cs [class*="dropdown"] *,
+body.bee--cs [class*="modal"] *,
+body.bee--cs [class*="popup"] * {
+  color: var(--brand-text-dark) !important;
 }
 

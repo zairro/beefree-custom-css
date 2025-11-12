@@ -1,216 +1,106 @@
 /*
- * Brand Theme for Beefree SDK
+ * Simplified Green Theme for Beefree SDK
  * 
- * Brand Colors:
- * - Primary Green: #1DB954
- * - Dark Background: #191414
- * - Light Background: #121212
- * - Text: #FFFFFF
- * - Secondary Text: #B3B3B3
- * - Hover: #1ED760
- * 
- * Font: Inter or fallback to system fonts
- * 
- * Updated with latest Beefree SDK CSS classes (--cs suffix)
- * Following Custom CSS best practices from Beefree SDK docs
+ * Following Beefree SDK Custom CSS Best Practices:
+ * - Only using --cs suffix classes
+ * - Using body.bee--cs prefix for specificity
+ * - Avoiding global styles
+ * - No styling of stage elements
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Kalam:wght@300;400;700&display=swap');
 
-/* Brand Color Variables */
+/* Color Variables */
 :root {
-  --brand-green: #1DB954;
-  --brand-green-hover: #1ED760;
-  --brand-dark: #191414;
-  --brand-dark-light: #121212;
-  --brand-text: #FFFFFF;
-  --brand-text-dark: #191414;
-  --brand-text-secondary: #B3B3B3;
-  --brand-border: rgba(255, 255, 255, 0.1);
-  --brand-hover-bg: rgba(255, 255, 255, 0.1);
-  --brand-light-bg: #FFFFFF;
-  --brand-light-bg-alt: #F5F5F5;
+  --green-primary: #1DB954;
+  --green-hover: #1ED760;
+  --green-light: #E8F5E9;
+  --green-border: #A5D6A7;
+  --text-dark: #191414;
+  --text-light: #FFFFFF;
+  --bg-white: #FFFFFF;
+  --bg-light: #F5F5F5;
 }
 
-/* Base Styles - Use specific selectors with body.bee--cs */
+/* Base - Cursive font for noticeable difference */
 body.bee--cs {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  background-color: var(--brand-dark-light);
-  color: var(--brand-text);
+  font-family: 'Kalam', 'Dancing Script', cursive, sans-serif;
 }
 
-/* Main Editor Container - Light background for template stage */
+/* Stage - Keep white background */
 .bee--cs .page-stage {
-  background-color: var(--brand-light-bg) !important;
-  border: 1px solid var(--brand-border);
+  background-color: var(--bg-white) !important;
 }
 
 /* ============================================
    TOP BAR / HEADER
    ============================================ */
 
-/* Top bar main background */
-header.top-bar.Header_header__Akif0.header--cs,
-.header--cs {
-  background: var(--brand-dark) !important;
-  border-bottom: 1px solid var(--brand-border);
-}
-
-/* Left section (logo area) */
-.header-left--cs,
-.Header_headerLeft__Akif0 {
-  background: var(--brand-dark) !important;
-}
-
-/* Right section (actions area) */
-.header-right--cs,
-.Header_headerRight__Akif0 {
-  background: var(--brand-dark) !important;
-}
-
-/* Divider */
-.Header_divider__Akif0 {
-  background: var(--brand-dark) !important;
-}
-
-/* Buttons in header */
-.header--cs .btn-primary,
-.header--cs .BeeButton_beeButton__SlzKf,
-body.bee--cs .button--cs,
-body.bee--cs .button-primary--cs {
-  background-color: var(--brand-green) !important;
-  color: var(--brand-text) !important;
-  border: none !important;
+/* Header buttons - Green with cursive font */
+body.bee--cs .button-primary--cs,
+.header--cs .btn-primary {
+  background-color: var(--green-primary) !important;
+  color: var(--text-light) !important;
   border-radius: 500px !important;
   padding: 8px 16px !important;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  font-family: 'Kalam', cursive, sans-serif !important;
   font-weight: 600 !important;
   font-size: 13px !important;
-  letter-spacing: 0.3px !important;
-  transition: all 0.2s ease !important;
 }
 
-.header--cs .btn-primary:hover,
-.header--cs .BeeButton_beeButton__SlzKf:hover,
-body.bee--cs .button--cs:hover,
-body.bee--cs .button-primary--cs:hover {
-  background-color: var(--brand-green-hover) !important;
-  transform: scale(1.02);
-}
-
-/* Header button spacing */
-.header--cs .btn-primary,
-.header--cs .BeeButton_beeButton__SlzKf {
-  margin: 0 4px !important;
-}
-
-/* Icons in header */
-.Header_headerRightIcons__Akif0 svg path,
-.header--cs svg path {
-  fill: var(--brand-text) !important;
+body.bee--cs .button-primary--cs:hover,
+.header--cs .btn-primary:hover {
+  background-color: var(--green-hover) !important;
 }
 
 /* ============================================
    SIDEBAR / WIDGET BAR
    ============================================ */
 
-/* Widget Bar - Vertical Left Panel */
+/* Widget bar - Light background, no black */
 .widget-bar.widget-bar--cs {
-  background-color: var(--brand-dark) !important;
-  border-right: 1px solid var(--brand-border);
+  background-color: var(--bg-white) !important;
 }
 
-/* Tabs - Left Panel Navigation - Smart contrast */
-.widget-bar.widget-bar--cs .tabset__tab--cs {
-  /* All tabs default to black text for visibility */
-  color: var(--brand-text-dark) !important;
-}
-
-.widget-bar.widget-bar--cs .tabset__tab--cs a {
-  background-color: transparent;
-  /* All tabs use black text by default */
-  color: var(--brand-text-dark) !important;
-  border-bottom: 2px solid transparent;
-  transition: all 0.2s ease;
-  opacity: 1;
-  font-weight: 500;
-}
-
-/* Inactive tabs on white/light background - black text */
+/* Tabs - Light background with dark text */
 .widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) {
-  background-color: var(--brand-light-bg) !important;
-  color: var(--brand-text-dark) !important;
+  background-color: var(--bg-light) !important;
 }
 
 .widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) a {
-  background-color: var(--brand-light-bg) !important;
-  color: var(--brand-text-dark) !important;
-  opacity: 1;
+  color: var(--text-dark) !important;
 }
 
-/* Active tab on dark background gets white text */
 .widget-bar.widget-bar--cs .tabset__tab--cs.active {
-  background-color: var(--brand-dark-light) !important;
+  background-color: var(--bg-white) !important;
 }
 
 .widget-bar.widget-bar--cs .tabset__tab--cs.active a {
-  background-color: var(--brand-dark-light) !important;
-  color: var(--brand-text) !important;
-  border-bottom-color: var(--brand-green);
-  font-weight: 600;
-  opacity: 1;
+  color: var(--text-dark) !important;
+  border-bottom-color: var(--green-primary) !important;
 }
 
-.widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) a:hover {
-  color: var(--brand-text-dark) !important;
-  background-color: rgba(0, 0, 0, 0.05) !important;
+/* Tab icons */
+.widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) svg path {
+  fill: var(--text-dark) !important;
 }
 
-.widget-bar.widget-bar--cs .tabset__tab--cs.active a:hover {
-  color: var(--brand-text) !important;
-  background-color: var(--brand-hover-bg) !important;
+.widget-bar.widget-bar--cs .tabset__tab--cs.active svg path {
+  fill: var(--green-primary) !important;
 }
 
-/* Tab Icons - Smart contrast */
-.widget-bar.widget-bar--cs .tabs__iconwrapper svg path {
-  /* Default: dark icons for visibility */
-  fill: var(--brand-text-dark) !important;
-  opacity: 1;
-}
-
-/* Inactive tabs - black icons on white background */
-.widget-bar.widget-bar--cs .tabset__tab--cs:not(.active) .tabs__iconwrapper svg path {
-  fill: var(--brand-text-dark) !important;
-  opacity: 1;
-}
-
-/* Active tab - green icon on dark background */
-.widget-bar.widget-bar--cs .tabset__tab--cs.active .tabs__iconwrapper svg path {
-  fill: var(--brand-green) !important;
-  opacity: 1;
-}
-
-/* Widget Sections - Light background with black text */
+/* Collapsible section titles - Light background, dark text */
 .widget-bar.widget-bar--cs .widgets-section__title--cs {
-  background: var(--brand-light-bg) !important;
-  color: var(--brand-text-dark) !important;
-  padding: 12px 16px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border-bottom: 1px solid var(--green-border) !important;
 }
 
 /* ============================================
-   DRAGGABLE CONTENT TILES / MODULES
+   CONTENT TILES - Light green like blue example
    ============================================ */
 
-/* Updated classes from changelog - sidebar-draggable--cs */
-/* Content tiles - Light background for better visibility */
 .sidebar-draggable--cs,
-.sidebar-draggable-fullwidth--cs,
 .sidebar-draggable-heading--cs,
 .sidebar-draggable-paragraph--cs,
 .sidebar-draggable-button--cs,
@@ -226,77 +116,54 @@ body.bee--cs .button-primary--cs:hover {
 .sidebar-draggable-menu--cs,
 .sidebar-draggable-carousel--cs,
 .sidebar-draggable-text--cs {
-  background-color: var(--brand-light-bg) !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background-color: var(--green-light) !important;
+  border: 1px solid var(--green-border) !important;
   border-radius: 8px !important;
-  margin-bottom: 8px !important;
-  padding: 12px !important;
-  transition: all 0.2s ease !important;
-  cursor: grab;
-  /* Light background = black text for visibility */
-  color: var(--brand-text-dark) !important;
+  color: var(--text-dark) !important;
 }
 
-/* Text labels inside content blocks - black text on light background */
-.sidebar-draggable--cs,
-.sidebar-draggable-heading--cs,
-.sidebar-draggable-paragraph--cs,
-.sidebar-draggable-button--cs,
-.sidebar-draggable-image--cs,
-.sidebar-draggable-list--cs,
-.sidebar-draggable-divider--cs,
-.sidebar-draggable-spacer--cs,
-.sidebar-draggable-social--cs,
-.sidebar-draggable-html--cs,
-.sidebar-draggable-video--cs,
-.sidebar-draggable-form--cs,
-.sidebar-draggable-icons--cs,
-.sidebar-draggable-menu--cs,
-.sidebar-draggable-carousel--cs,
-.sidebar-draggable-text--cs {
-  /* Light backgrounds = black text */
-  color: var(--brand-text-dark) !important;
+/* Content tile text and icons - Dark on light green */
+.sidebar-draggable--cs *,
+.sidebar-draggable-heading--cs *,
+.sidebar-draggable-paragraph--cs *,
+.sidebar-draggable-button--cs *,
+.sidebar-draggable-image--cs *,
+.sidebar-draggable-list--cs *,
+.sidebar-draggable-divider--cs *,
+.sidebar-draggable-spacer--cs *,
+.sidebar-draggable-social--cs *,
+.sidebar-draggable-html--cs *,
+.sidebar-draggable-video--cs *,
+.sidebar-draggable-form--cs *,
+.sidebar-draggable-icons--cs *,
+.sidebar-draggable-menu--cs *,
+.sidebar-draggable-carousel--cs *,
+.sidebar-draggable-text--cs * {
+  color: var(--text-dark) !important;
 }
 
-/* But if content blocks have light backgrounds, use dark text */
-.sidebar-draggable--cs[style*="background-color: #fff"],
-.sidebar-draggable--cs[style*="background-color: white"],
-.sidebar-draggable--cs[style*="background-color: rgb(255"],
-.sidebar-draggable--cs[style*="background-color: rgba(255"],
-.sidebar-draggable-heading--cs[style*="background-color: #fff"],
-.sidebar-draggable-paragraph--cs[style*="background-color: #fff"] {
-  color: var(--brand-text-dark) !important;
+/* Content tile icons */
+.sidebar-draggable--cs svg path,
+.sidebar-draggable-heading--cs svg path,
+.sidebar-draggable-paragraph--cs svg path,
+.sidebar-draggable-button--cs svg path,
+.sidebar-draggable-image--cs svg path,
+.sidebar-draggable-list--cs svg path,
+.sidebar-draggable-divider--cs svg path,
+.sidebar-draggable-spacer--cs svg path,
+.sidebar-draggable-social--cs svg path,
+.sidebar-draggable-html--cs svg path,
+.sidebar-draggable-video--cs svg path,
+.sidebar-draggable-form--cs svg path,
+.sidebar-draggable-icons--cs svg path,
+.sidebar-draggable-menu--cs svg path,
+.sidebar-draggable-carousel--cs svg path,
+.sidebar-draggable-text--cs svg path {
+  fill: var(--text-dark) !important;
 }
 
-.sidebar-draggable--cs[style*="background-color: #fff"] *,
-.sidebar-draggable-heading--cs[style*="background-color: #fff"] *,
-.sidebar-draggable-paragraph--cs[style*="background-color: #fff"] * {
-  color: var(--brand-text-dark) !important;
-}
-
-/* Icons inside content blocks - black icons on light background */
-.sidebar-draggable--cs svg,
-.sidebar-draggable-heading--cs svg,
-.sidebar-draggable-paragraph--cs svg,
-.sidebar-draggable-button--cs svg,
-.sidebar-draggable-image--cs svg,
-.sidebar-draggable-list--cs svg,
-.sidebar-draggable-divider--cs svg,
-.sidebar-draggable-spacer--cs svg,
-.sidebar-draggable-social--cs svg,
-.sidebar-draggable-html--cs svg,
-.sidebar-draggable-video--cs svg,
-.sidebar-draggable-form--cs svg,
-.sidebar-draggable-icons--cs svg,
-.sidebar-draggable-menu--cs svg,
-.sidebar-draggable-carousel--cs svg,
-.sidebar-draggable-text--cs svg {
-  fill: var(--brand-text-dark) !important;
-  opacity: 1 !important;
-}
-
+/* Content tile hover - Subtle green tint */
 .sidebar-draggable--cs:hover,
-.sidebar-draggable-fullwidth--cs:hover,
 .sidebar-draggable-heading--cs:hover,
 .sidebar-draggable-paragraph--cs:hover,
 .sidebar-draggable-button--cs:hover,
@@ -312,669 +179,106 @@ body.bee--cs .button-primary--cs:hover {
 .sidebar-draggable-menu--cs:hover,
 .sidebar-draggable-carousel--cs:hover,
 .sidebar-draggable-text--cs:hover {
-  background-color: rgba(29, 185, 84, 0.1) !important;
-  border-color: var(--brand-green) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(29, 185, 84, 0.2);
-  /* Hovered tiles keep black text */
-  color: var(--brand-text-dark) !important;
+  background-color: rgba(29, 185, 84, 0.15) !important;
+  border-color: var(--green-primary) !important;
 }
-
-/* Text and icons in hovered content tiles */
-.sidebar-draggable--cs:hover *,
-.sidebar-draggable-heading--cs:hover *,
-.sidebar-draggable-paragraph--cs:hover *,
-.sidebar-draggable-button--cs:hover *,
-.sidebar-draggable-image--cs:hover *,
-.sidebar-draggable-list--cs:hover *,
-.sidebar-draggable-divider--cs:hover *,
-.sidebar-draggable-spacer--cs:hover *,
-.sidebar-draggable-social--cs:hover *,
-.sidebar-draggable-html--cs:hover *,
-.sidebar-draggable-video--cs:hover *,
-.sidebar-draggable-form--cs:hover *,
-.sidebar-draggable-icons--cs:hover *,
-.sidebar-draggable-menu--cs:hover *,
-.sidebar-draggable-carousel--cs:hover *,
-.sidebar-draggable-text--cs:hover * {
-  color: var(--brand-text-dark) !important;
-}
-
-/* Icons in hovered content tiles */
-.sidebar-draggable--cs:hover svg,
-.sidebar-draggable-heading--cs:hover svg,
-.sidebar-draggable-paragraph--cs:hover svg,
-.sidebar-draggable-button--cs:hover svg,
-.sidebar-draggable-image--cs:hover svg,
-.sidebar-draggable-list--cs:hover svg,
-.sidebar-draggable-divider--cs:hover svg,
-.sidebar-draggable-spacer--cs:hover svg,
-.sidebar-draggable-social--cs:hover svg,
-.sidebar-draggable-html--cs:hover svg,
-.sidebar-draggable-video--cs:hover svg,
-.sidebar-draggable-form--cs:hover svg,
-.sidebar-draggable-icons--cs:hover svg,
-.sidebar-draggable-menu--cs:hover svg,
-.sidebar-draggable-carousel--cs:hover svg,
-.sidebar-draggable-text--cs:hover svg {
-  fill: var(--brand-text-dark) !important;
-  opacity: 1 !important;
-}
-
-/* Locked draggables */
-.sidebar-draggable-locked--cs {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Draggable Row Styles */
-.sidebar-draggable-customrow--cs {
-  background-color: var(--brand-dark-light) !important;
-  border: 1px solid var(--brand-border) !important;
-  border-radius: 8px !important;
-  margin-bottom: 8px !important;
-  padding: 12px !important;
-}
-
-.sidebar-draggable-customrow--cs:hover {
-  background-color: var(--brand-hover-bg) !important;
-  border-color: var(--brand-green) !important;
-}
-
-/* Rows wrapper */
-.rows-wrapper--cs {
-  background-color: transparent;
-}
-
-/* ============================================
-   INPUT FIELDS & FORM ELEMENTS
-   ============================================ */
-
-/* Updated input classes from changelog - Fix "transparent" text cutoff */
-.input-text--cs,
-.input-text-boxed--cs,
-.number-selector--cs {
-  background-color: var(--brand-dark-light) !important;
-  border: 1px solid var(--brand-border) !important;
-  color: var(--brand-text) !important;
-  padding: 10px 12px !important;
-  border-radius: 4px !important;
-  font-size: 14px !important;
-  width: 100% !important;
-  min-width: 0 !important;
-  box-sizing: border-box !important;
-  /* Fix text overflow - ensure full text is visible */
-  overflow: visible !important;
-  text-overflow: clip !important;
-  white-space: nowrap !important;
-}
-
-/* Color picker inputs - Fix "transparent" cutoff */
-input[type="text"].input-text--cs,
-input[type="text"].input-text-boxed--cs {
-  padding-right: 40px !important; /* Space for color picker icon */
-  min-width: 120px !important; /* Ensure enough width for "transparent" */
-}
-
-/* Focus states */
-.input-text--cs:focus,
-.input-text-boxed--cs:focus,
-.number-selector--cs:focus {
-  border-color: var(--brand-green) !important;
-  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.2) !important;
-  outline: none !important;
-}
-
-/* Select dropdowns */
-.widget-bar.widget-bar--cs select,
-.widget-bar.widget-bar--cs .dropdown-toggle,
-.line-height-select--cs {
-  background-color: var(--brand-dark-light) !important;
-  border: 1px solid var(--brand-border) !important;
-  color: var(--brand-text) !important;
-  padding: 10px 12px !important;
-  border-radius: 4px !important;
-  font-size: 14px !important;
-  min-width: 120px !important;
-}
-
-.widget-bar.widget-bar--cs select:focus,
-.widget-bar.widget-bar--cs .dropdown-toggle:focus,
-.line-height-select--cs:focus {
-  border-color: var(--brand-green) !important;
-  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.2) !important;
-  outline: none !important;
-}
-
-/* Textareas */
-.widget-bar.widget-bar--cs textarea {
-  background-color: var(--brand-dark-light) !important;
-  border: 1px solid var(--brand-border) !important;
-  color: var(--brand-text) !important;
-  padding: 10px 12px !important;
-  border-radius: 4px !important;
-  font-size: 14px !important;
-  resize: vertical;
-}
-
-.widget-bar.widget-bar--cs textarea:focus {
-  border-color: var(--brand-green) !important;
-  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.2) !important;
-  outline: none !important;
-}
-
-/* Labels - Smart contrast based on background */
-.widget__label,
-.widget__label--textbox {
-  /* Default: assume white background, use black text */
-  color: var(--brand-text-dark) !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  margin-bottom: 6px !important;
-}
-
-/* Labels on dark backgrounds get white text */
-.widget-bar.widget-bar--cs [style*="background-color: #121212"] .widget__label,
-.widget-bar.widget-bar--cs [style*="background-color: #191414"] .widget__label,
-.widget-bar.widget-bar--cs [style*="background-color: rgb(18"] .widget__label,
-.widget-bar.widget-bar--cs [style*="background-color: rgb(25"] .widget__label,
-.panel__title--cs .widget__label,
-.properties-panel__title--cs .widget__label {
-  color: var(--brand-text) !important;
-}
-
-/* Ensure all text in properties panel is visible */
-.widget-bar.widget-bar--cs .properties-panel__title--cs,
-.widget-bar.widget-bar--cs .properties-panel__title--cs *,
-.panel__title--cs,
-.panel__title--cs * {
-  color: var(--brand-text) !important;
-}
-
-/* Text in widget sections - smart contrast based on background */
-.widget-bar.widget-bar--cs {
-  /* Default: white backgrounds get black text */
-  color: var(--brand-text-dark) !important;
-}
-
-/* All text in white/light areas gets black text */
-.widget-bar.widget-bar--cs [style*="background-color: #fff"],
-.widget-bar.widget-bar--cs [style*="background-color: #FFF"],
-.widget-bar.widget-bar--cs [style*="background-color: white"],
-.widget-bar.widget-bar--cs [style*="background-color: rgb(255"],
-.widget-bar.widget-bar--cs [style*="background-color: rgba(255, 255"],
-.widget-bar.widget-bar--cs [style*="background-color: rgba(245"],
-.widget-bar.widget-bar--cs [style*="background-color: rgba(250"],
-.widget-bar.widget-bar--cs [class*="light"]:not([class*="dark"]),
-.widget-bar.widget-bar--cs [class*="white"]:not([class*="dark"]) {
-  color: var(--brand-text-dark) !important;
-}
-
-/* All children of white backgrounds get black text */
-.widget-bar.widget-bar--cs [style*="background-color: #fff"] *,
-.widget-bar.widget-bar--cs [style*="background-color: white"] *,
-.widget-bar.widget-bar--cs [style*="background-color: rgb(255"] *,
-.widget-bar.widget-bar--cs [style*="background-color: rgba(255, 255"] * {
-  color: var(--brand-text-dark) !important;
-}
-
-/* Dark backgrounds get white text */
-.widget-bar.widget-bar--cs [style*="background-color: #121212"],
-.widget-bar.widget-bar--cs [style*="background-color: #191414"],
-.widget-bar.widget-bar--cs [style*="background-color: rgb(18"],
-.widget-bar.widget-bar--cs [style*="background-color: rgb(25"] {
-  color: var(--brand-text) !important;
-}
-
-.widget-bar.widget-bar--cs [style*="background-color: #121212"] *,
-.widget-bar.widget-bar--cs [style*="background-color: #191414"] * {
-  color: var(--brand-text) !important;
-}
-
-/* Override removed - handled above with smart contrast */
 
 /* ============================================
    PROPERTIES PANEL
    ============================================ */
 
-/* Properties Panel Title */
-.widget-bar.widget-bar--cs .properties-panel__title--cs h4,
+/* Properties panel - Light background, dark text */
+.widget-bar.widget-bar--cs .properties-panel__title--cs,
 .panel__title--cs {
-  background: var(--brand-dark-light) !important;
-  color: var(--brand-text) !important;
-  padding: 14px 16px !important;
-  font-size: 0.875rem !important;
-  font-weight: 600 !important;
-  text-transform: uppercase !important;
-  letter-spacing: 1px !important;
-  border-bottom: 1px solid var(--brand-border) !important;
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
+  border-bottom: 1px solid var(--green-border) !important;
+}
+
+/* Labels - Dark text */
+.widget__label,
+.widget__label--textbox {
+  color: var(--text-dark) !important;
+}
+
+/* Inputs - Light background, dark text */
+.input-text--cs,
+.input-text-boxed--cs,
+.number-selector--cs {
+  background-color: var(--bg-white) !important;
+  border: 1px solid var(--green-border) !important;
+  color: var(--text-dark) !important;
+}
+
+.input-text--cs:focus,
+.input-text-boxed--cs:focus,
+.number-selector--cs:focus {
+  border-color: var(--green-primary) !important;
+}
+
+/* Selects - Light background, dark text */
+.widget-bar.widget-bar--cs select,
+.line-height-select--cs {
+  background-color: var(--bg-white) !important;
+  border: 1px solid var(--green-border) !important;
+  color: var(--text-dark) !important;
 }
 
 /* ============================================
    BUTTONS
    ============================================ */
 
-/* General buttons */
-body.bee--cs .btn,
-body.bee--cs .button--cs {
-  background-color: var(--brand-dark-light) !important;
-  color: var(--brand-text) !important;
-  border: 1px solid var(--brand-border) !important;
-  border-radius: 4px !important;
-  padding: 8px 16px !important;
-  font-weight: 500 !important;
-  transition: all 0.2s ease !important;
-}
-
-body.bee--cs .btn:hover,
-body.bee--cs .button--cs:hover {
-  background-color: var(--brand-hover-bg) !important;
-  border-color: var(--brand-green) !important;
-}
-
-/* Primary buttons */
-body.bee--cs .btn-primary,
-body.bee--cs .button-primary--cs {
-  background-color: var(--brand-green) !important;
-  color: var(--brand-text) !important;
-  border: none !important;
-  border-radius: 500px !important;
-  padding: 8px 16px !important;
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-  font-weight: 600 !important;
-  font-size: 13px !important;
-  letter-spacing: 0.3px !important;
-}
-
-body.bee--cs .btn-primary:hover,
-body.bee--cs .button-primary--cs:hover {
-  background-color: var(--brand-green-hover) !important;
-  transform: scale(1.05);
-}
-
-/* Icon buttons - Plus/Minus buttons - Green icons, no hover effect */
-.button-icon--cs,
-.button-small--cs {
-  background-color: transparent !important;
-  border: none !important;
-  color: var(--brand-green) !important;
-  padding: 8px !important;
-  border-radius: 50% !important;
-  transition: none !important;
-}
-
-.button-icon--cs:hover,
-.button-small--cs:hover {
-  background-color: transparent !important;
-  color: var(--brand-green) !important;
-  transform: none !important;
-}
-
-/* Plus/Minus buttons specifically - Green icons only */
-body.bee--cs button[class*="plus"],
-body.bee--cs button[class*="minus"],
-body.bee--cs button[class*="add"],
-body.bee--cs button[class*="remove"],
+/* Plus/Minus buttons - Green icons only, no hover */
 body.bee--cs .number-selector--cs button,
-body.bee--cs [class*="increment"],
-body.bee--cs [class*="decrement"] {
+body.bee--cs .button-icon--cs,
+body.bee--cs .button-small--cs {
   background-color: transparent !important;
+  color: var(--green-primary) !important;
   border: none !important;
-  color: var(--brand-green) !important;
-  padding: 4px 8px !important;
-  transition: none !important;
 }
 
-body.bee--cs button[class*="plus"]:hover,
-body.bee--cs button[class*="minus"]:hover,
-body.bee--cs button[class*="add"]:hover,
-body.bee--cs button[class*="remove"]:hover,
 body.bee--cs .number-selector--cs button:hover,
-body.bee--cs [class*="increment"]:hover,
-body.bee--cs [class*="decrement"]:hover {
+body.bee--cs .button-icon--cs:hover,
+body.bee--cs .button-small--cs:hover {
   background-color: transparent !important;
-  color: var(--brand-green) !important;
+  color: var(--green-primary) !important;
   transform: none !important;
-  box-shadow: none !important;
 }
 
-/* SVG icons in plus/minus buttons */
-body.bee--cs button[class*="plus"] svg path,
-body.bee--cs button[class*="minus"] svg path,
-body.bee--cs button[class*="add"] svg path,
-body.bee--cs button[class*="remove"] svg path,
-body.bee--cs .number-selector--cs button svg path {
-  fill: var(--brand-green) !important;
-}
-
-.button-active--cs {
-  background-color: var(--brand-green) !important;
-  color: var(--brand-text) !important;
+body.bee--cs .number-selector--cs button svg path,
+body.bee--cs .button-icon--cs svg path {
+  fill: var(--green-primary) !important;
 }
 
 /* ============================================
-   TOGGLE SWITCHES
+   ROWS - Remove text input, keep dropdown only
    ============================================ */
 
-.widget-bar.widget-bar--cs .tgl-container--cs .tgl_bgd {
-  background-color: var(--brand-text-secondary) !important;
-}
-
-.widget-bar.widget-bar--cs .tgl-container--cs .tgl_switch {
-  background-color: var(--brand-text) !important;
-}
-
-.widget-bar.widget-bar--cs .tgl-container--cs input:checked + .tgl_bgd {
-  background-color: var(--brand-green) !important;
-}
-
-/* ============================================
-   SELECTED ELEMENTS & DRAG STATES
-   ============================================ */
-
-/* Selected elements on stage */
-body.bee--cs .selected.module-box:before,
-body.bee--cs .selected.row-container .row-selector:before {
-  background-color: var(--brand-green) !important;
-}
-
-/* Drag states */
-body.bee--cs .dragging.module,
-body.bee--cs .dragging.row {
-  background-color: rgba(29, 185, 84, 0.2) !important;
-  outline: 2px dashed var(--brand-green) !important;
-}
-
-/* ============================================
-   STAGE MODE TOGGLE (Desktop/Mobile)
-   ============================================ */
-
-/* Updated classes from changelog */
-.stagemode__radiogroup--cs {
-  background-color: var(--brand-dark-light) !important;
-  border: 1px solid var(--brand-border) !important;
-  border-radius: 4px !important;
-  padding: 4px !important;
-}
-
-.radiogroup-mobile--cs,
-.radiogroup-desktop--cs {
-  color: var(--brand-text-secondary) !important;
-  padding: 8px 16px !important;
-  border-radius: 4px !important;
-  transition: all 0.2s ease !important;
-}
-
-.radiogroup-mobile--cs.active--cs,
-.radiogroup-desktop--cs.active--cs {
-  background-color: var(--brand-green) !important;
-  color: var(--brand-text) !important;
-}
-
-/* ============================================
-   UNDO/REDO HISTORY
-   ============================================ */
-
-/* Updated classes from changelog */
-.undo-redo__history--open--cs {
-  background-color: var(--brand-dark) !important;
-  border: 1px solid var(--brand-border) !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-}
-
-.history__step--active--cs {
-  background-color: var(--brand-hover-bg) !important;
-  color: var(--brand-green) !important;
-}
-
-.history__step--disabled--cs {
-  color: var(--brand-text-secondary) !important;
-  opacity: 0.5;
-}
-
-/* ============================================
-   SCROLLBARS
-   ============================================ */
-
-.widget-bar.widget-bar--cs ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-.widget-bar.widget-bar--cs ::-webkit-scrollbar-thumb {
-  background-color: var(--brand-text-secondary);
-  border-radius: 6px;
-}
-
-.widget-bar.widget-bar--cs ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--brand-text);
-}
-
-.widget-bar.widget-bar--cs ::-webkit-scrollbar-track {
-  background-color: var(--brand-dark-light);
-}
-
-/* ============================================
-   ICONS & SVG ELEMENTS
-   ============================================ */
-
-/* Icon collection list */
-.icons-collection-list--cs {
-  background-color: var(--brand-dark-light) !important;
-}
-
-/* Icon organizer panel */
-.icon-organizer__panel {
-  background-color: var(--brand-dark-light) !important;
-  border: 1px solid var(--brand-border) !important;
-  border-radius: 8px !important;
-}
-
-/* Panel icon preview wrapper */
-.panel__icon-preview-wrapper {
-  background-color: var(--brand-dark) !important;
-  border-radius: 4px !important;
-}
-
-/* SVG icons - Brand green accent with smart contrast */
-.widget-bar.widget-bar--cs svg .icon--color-base,
-.widget-bar.widget-bar--cs svg path {
-  /* Default: dark icons for light backgrounds */
-  fill: var(--brand-text-dark) !important;
-  opacity: 0.7;
-}
-
-/* Dark background areas get white icons */
-.widget-bar.widget-bar--cs .tabset__tab--cs.active svg path,
-.widget-bar.widget-bar--cs .button-active--cs svg path,
-.widget-bar.widget-bar--cs [style*="background-color: #121212"] svg path,
-.widget-bar.widget-bar--cs [style*="background-color: #191414"] svg path {
-  fill: var(--brand-text) !important;
-  opacity: 1;
-}
-
-.widget-bar.widget-bar--cs .tabset__tab--cs.active svg path {
-  fill: var(--brand-green) !important;
-}
-
-/* ============================================
-   ANIMATIONS & TRANSITIONS
-   ============================================ */
-
-/* Brand-style hover animations */
-@keyframes brand-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(29, 185, 84, 0.4); }
-  100% { box-shadow: 0 0 0 8px rgba(29, 185, 84, 0); }
-}
-
-body.bee--cs .btn-primary:focus,
-body.bee--cs .button-primary--cs:focus {
-  animation: brand-pulse 0.6s ease-out;
-}
-
-/* Smooth transitions for all interactive elements */
-.sidebar-draggable--cs,
-.button--cs,
-.input-text--cs,
-.widget-bar.widget-bar--cs .tabset__tab--cs a {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* ============================================
-   PREVIEW MODE (if applicable)
-   ============================================ */
-
-.preview--cs {
-  background-color: var(--brand-dark) !important;
-}
-
-.preview-header--cs {
-  background-color: var(--brand-dark) !important;
-  border-bottom: 1px solid var(--brand-border) !important;
-}
-
-.preview-title--cs {
-  color: var(--brand-text) !important;
-}
-
-/* ============================================
-   RESPONSIVE & ACCESSIBILITY
-   ============================================ */
-
-/* Ensure text is readable */
-body.bee--cs {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Focus indicators for accessibility */
-*:focus-visible {
-  outline: 2px solid var(--brand-green) !important;
-  outline-offset: 2px !important;
-}
-
-/* ============================================
-   GLOBAL CONTRAST ENFORCEMENT
-   ============================================ */
-
-/* Ensure proper contrast: Light backgrounds get dark text, dark backgrounds get light text */
-body.bee--cs [style*="background-color: #fff"],
-body.bee--cs [style*="background-color: #FFF"],
-body.bee--cs [style*="background-color: white"],
-body.bee--cs [style*="background-color: rgb(255"],
-body.bee--cs [style*="background-color: rgba(255, 255"],
-body.bee--cs [style*="background-color: rgba(245"],
-body.bee--cs [style*="background-color: rgba(250"],
-body.bee--cs [style*="background-color: rgba(240"],
-body.bee--cs [style*="background-color: rgba(249"],
-body.bee--cs [class*="light"]:not([class*="dark"]),
-body.bee--cs [class*="white"]:not([class*="dark"]),
-body.bee--cs [class*="bg-white"],
-body.bee--cs [class*="bg-light"] {
-  color: var(--brand-text-dark) !important;
-}
-
-/* All text inside white backgrounds */
-body.bee--cs [style*="background-color: #fff"] *,
-body.bee--cs [style*="background-color: white"] *,
-body.bee--cs [style*="background-color: rgb(255"] *,
-body.bee--cs [style*="background-color: rgba(255, 255"] *,
-body.bee--cs [style*="background-color: rgba(245"] *,
-body.bee--cs [style*="background-color: rgba(250"] * {
-  color: var(--brand-text-dark) !important;
-}
-
-/* SVG icons in white backgrounds */
-body.bee--cs [style*="background-color: #fff"] svg path,
-body.bee--cs [style*="background-color: white"] svg path,
-body.bee--cs [style*="background-color: rgb(255"] svg path {
-  fill: var(--brand-text-dark) !important;
-}
-
-/* Dark backgrounds get white text */
-body.bee--cs [style*="background-color: #121212"],
-body.bee--cs [style*="background-color: #191414"],
-body.bee--cs [style*="background-color: rgb(18"],
-body.bee--cs [style*="background-color: rgb(25"],
-body.bee--cs [style*="background-color: rgba(18"],
-body.bee--cs [style*="background-color: rgba(25"],
-body.bee--cs [class*="dark"]:not([class*="light"]) {
-  color: var(--brand-text) !important;
-}
-
-body.bee--cs [style*="background-color: #121212"] *,
-body.bee--cs [style*="background-color: #191414"] * {
-  color: var(--brand-text) !important;
-}
-
-/* Override for specific elements that should always have contrast */
-body.bee--cs input[type="text"],
-body.bee--cs input[type="number"],
-body.bee--cs select,
-body.bee--cs textarea {
-  /* These are handled by their specific classes above */
-}
-
-/* Ensure dropdowns and modals have proper contrast */
-body.bee--cs [class*="dropdown"],
-body.bee--cs [class*="modal"],
-body.bee--cs [class*="popup"],
-body.bee--cs [class*="menu"] {
-  background-color: var(--brand-light-bg) !important;
-  color: var(--brand-text-dark) !important;
-}
-
-body.bee--cs [class*="dropdown"] *,
-body.bee--cs [class*="modal"] *,
-body.bee--cs [class*="popup"] *,
-body.bee--cs [class*="menu"] * {
-  color: var(--brand-text-dark) !important;
-}
-
-/* Properties panel content area - white background = black text */
-.widget-bar.widget-bar--cs .properties-panel__content,
-.widget-bar.widget-bar--cs .panel__content,
-.widget-bar.widget-bar--cs .widget__content {
-  background-color: var(--brand-light-bg) !important;
-  color: var(--brand-text-dark) !important;
-}
-
-.widget-bar.widget-bar--cs .properties-panel__content *,
-.widget-bar.widget-bar--cs .panel__content *,
-.widget-bar.widget-bar--cs .widget__content * {
-  color: var(--brand-text-dark) !important;
-}
-
-/* Input fields on white backgrounds */
-.widget-bar.widget-bar--cs [style*="background-color: #fff"] input,
-.widget-bar.widget-bar--cs [style*="background-color: white"] input,
-.widget-bar.widget-bar--cs [style*="background-color: rgb(255"] input {
-  color: var(--brand-text-dark) !important;
-}
-
-/* Select dropdowns on white backgrounds */
-.widget-bar.widget-bar--cs [style*="background-color: #fff"] select,
-.widget-bar.widget-bar--cs [style*="background-color: white"] select {
-  color: var(--brand-text-dark) !important;
-}
-
-/* ============================================
-   ROWS - Remove typing option, keep dropdown only
-   ============================================ */
-
-/* Hide input fields for row names - only show dropdown */
+/* Hide row name input fields */
 .widget-bar.widget-bar--cs [class*="row"] input[type="text"],
-.widget-bar.widget-bar--cs [class*="row"] input[type="text"].input-text--cs,
-.widget-bar.widget-bar--cs [class*="row-name"] input,
-.widget-bar.widget-bar--cs [class*="row"] [class*="name"] input[type="text"] {
+.widget-bar.widget-bar--cs [class*="row-name"] input {
   display: none !important;
 }
 
-/* Ensure row dropdowns are visible */
-.widget-bar.widget-bar--cs [class*="row"] select,
-.widget-bar.widget-bar--cs [class*="row"] .dropdown-toggle {
-  display: block !important;
-  visibility: visible !important;
+/* ============================================
+   GENERAL - Ensure light backgrounds everywhere
+   ============================================ */
+
+/* Remove any dark backgrounds */
+body.bee--cs [style*="background-color: #121212"],
+body.bee--cs [style*="background-color: #191414"] {
+  background-color: var(--bg-white) !important;
+  color: var(--text-dark) !important;
 }
 
+/* Ensure text is dark on light backgrounds */
+body.bee--cs [style*="background-color: #fff"],
+body.bee--cs [style*="background-color: white"],
+body.bee--cs [style*="background-color: rgb(255"] {
+  color: var(--text-dark) !important;
+}
+
+body.bee--cs [style*="background-color: #fff"] *,
+body.bee--cs [style*="background-color: white"] * {
+  color: var(--text-dark) !important;
+}
